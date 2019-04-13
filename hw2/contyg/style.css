@@ -1,0 +1,45 @@
+/* ------- TABLE  --------*/
+
+tr:nth-child(even) {
+    background-color: lightgreen;
+}
+
+tr:nth-child(odd):not(:first-child):not(:last-child) {
+    background-color:lightblue;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+.first-col {
+    font-style: italic;
+}
+
+/* ------- DIVs  --------*/
+.outer-content {
+    background-color: pink;
+    width: 75%;
+    height: 50px;
+    margin-top: 20px;
+    float: left;
+    position: relative;
+}
+
+.inner-content {
+    background-color: lightblue;
+    width: 75%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form {
+    clear: both;
+}   
+
+fieldset {
+    margin-top: 10px;
+}
