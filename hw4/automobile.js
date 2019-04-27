@@ -21,15 +21,15 @@ var automobiles = [
  * last index
  */
 function sortArr( comparator, array ){
-    for (let i = 0; i < array.length-1; i++) {
-        if (!comparator(array[i], array[i+1])) {
-            const temp = array[i];
-            array[i] = array[i+1];
-            array[i+1] = array[i];
+    for (let n = 0; n < array.length; n++) {
+        for (let i = 0; i < array.length-1; i++) {
+            if (comparator(array[i+1], array[i])) {
+                const temp = array[i];
+                array[i] = array[i+1];
+                array[i+1] = temp;
+            }
         }
-        i++;
     }
-
     return array;
 }
 
@@ -63,7 +63,7 @@ function yearComparator( auto1, auto2){
  * ones that come later.
  */
 function makeComparator( auto1, auto2){
-    return (auto1.make < auto2.make);
+    return (auto1.make.toLowerCase() < auto2.make.toLowerCase());
 }
 
 /* This compares two automobiles based on their type. The ordering from "greatest" 
@@ -150,21 +150,21 @@ The cars sorted by type are:
 As an example of the content in the parenthesis:
 1990 Ford F-150 */
 
-console.log("***** \n The cars sorted by year are: \n");
+console.log("***** \nThe cars sorted by year are: ");
 sortArr(yearComparator, automobiles);
 for (let i = 0; i < automobiles.length; i++) {
     automobiles[i].logMe(false);
 }
 
 
-console.log("\nThe cars sorted by make are:\n");
+console.log("\n\nThe cars sorted by make are:");
 sortArr(makeComparator, automobiles);
 
 for (let i = 0; i < automobiles.length; i++) {
     automobiles[i].logMe(false);
 }
 
-console.log("\nThe cars sorted by type are:\n");
+console.log("\n\nThe cars sorted by type are:");
 sortArr(typeComparator, automobiles);
 
 for (let i = 0; i < automobiles.length; i++) {
