@@ -21,7 +21,16 @@ var automobiles = [
  * last index
  */
 function sortArr( comparator, array ){
-    /*your code here*/
+    for (let i = 0; i < array.length-1; i++) {
+        if (!comparator(array[i], array[i+1])) {
+            const temp = array[i];
+            array[i] = array[i+1];
+            array[i+1] = array[i];
+        }
+        i++;
+    }
+
+    return array;
 }
 
 /* A comparator takes two arguments and uses some algorithm to compare 
@@ -46,7 +55,7 @@ function exComparator( int1, int2){
  * than older cars.
  */
 function yearComparator( auto1, auto2){
-    /* your code here*/
+    return (auto1.year < auto2.year);
 }
 
 /* This compares two automobiles based on their make. It should be case insensitive 
@@ -54,7 +63,7 @@ function yearComparator( auto1, auto2){
  * ones that come later.
  */
 function makeComparator( auto1, auto2){
-    /* your code here*/
+    return (auto1.make < auto2.make);
 }
 
 /* This compares two automobiles based on their type. The ordering from "greatest" 
@@ -64,14 +73,57 @@ function makeComparator( auto1, auto2){
  */
 
  function typeComparator( auto1, auto2){
-    /* your code here*/
+    if (auto1.type === auto2.type) {
+        return yearComparator(auto1, auto2);
+    }
+
+    let auto1Type = auto1.type.toLowerCase();
+    let auto2Type = auto2.type.toLowerCase();
+
+    switch (auto1.type) {
+        case "roadster":
+            auto1Type = 5;
+        case "pickup": 
+            auto1Type = 4;
+        case "suv": 
+            auto1Type = 3;
+        case "wagon":
+            auto1Type = 2;
+        default:
+            auto1Type = 0;
+    }
+
+    switch (auto2.type) {
+        case "roadster":
+            auto1Type = 5;
+        case "pickup": 
+            auto1Type = 4;
+        case "suv": 
+            auto1Type = 3;
+        case "wagon":
+            auto1Type = 2;
+        default:
+            auto1Type = 0;
+    }
+
+    return (auto1Type > auto2Type);
+}
+
+Automobile.prototype.logMe = function(boolInput) {
+    let string = '\n' + this.year + ' ' + this.make + ' ' + this.model;
+
+    if(boolInput) {
+        string += ' ' + this.type;
+    }
+
+    console.log(string)
 }
 
 /* Your program should output the following to the console.log, including the opening 
  * and closing 5 stars. All values in parenthesis should be replaced with appropriate 
  * values. Each line is a seperate call to console.log.
 
-Each line representing a car should be produced via a logMe function. 
+TODO: Each line representing a car should be produced via a logMe function. 
 This function should be added to the Automobile class and accept a single 
 boolean argument. If the argument is 'true' then it prints "year make model type" 
 with the year, make, model and type being the values appropriate for the automobile. 
@@ -97,3 +149,26 @@ The cars sorted by type are:
 
 As an example of the content in the parenthesis:
 1990 Ford F-150 */
+
+console.log("***** \n The cars sorted by year are: \n");
+sortArr(yearComparator, automobiles);
+for (let i = 0; i < automobiles.length; i++) {
+    automobiles[i].logMe(false);
+}
+
+
+console.log("\nThe cars sorted by make are:\n");
+sortArr(makeComparator, automobiles);
+
+for (let i = 0; i < automobiles.length; i++) {
+    automobiles[i].logMe(false);
+}
+
+console.log("\nThe cars sorted by type are:\n");
+sortArr(typeComparator, automobiles);
+
+for (let i = 0; i < automobiles.length; i++) {
+    automobiles[i].logMe(true);
+}
+
+console.log("\n*****");
