@@ -55,7 +55,7 @@ function exComparator( int1, int2){
  * than older cars.
  */
 function yearComparator( auto1, auto2){
-    return (auto1.year < auto2.year);
+    return (auto1.year > auto2.year);
 }
 
 /* This compares two automobiles based on their make. It should be case insensitive 
@@ -73,40 +73,53 @@ function makeComparator( auto1, auto2){
  */
 
  function typeComparator( auto1, auto2){
-    if (auto1.type === auto2.type) {
+    const auto1Type = auto1.type.toLowerCase();
+    const auto2Type = auto2.type.toLowerCase();
+    
+    if (auto1Type === auto2Type) {
         return yearComparator(auto1, auto2);
     }
 
-    let auto1Type = auto1.type.toLowerCase();
-    let auto2Type = auto2.type.toLowerCase();
+    let numAuto1Type;
+    let numAuto2Type;
 
-    switch (auto1.type) {
+    switch (auto1Type) {
         case "roadster":
-            auto1Type = 5;
+            numAuto1Type = 5;
+            break;
         case "pickup": 
-            auto1Type = 4;
+            numAuto1Type = 4;
+            break;
         case "suv": 
-            auto1Type = 3;
+            numAuto1Type = 3;
+            break;
         case "wagon":
-            auto1Type = 2;
+            numAuto1Type = 2;
+            break;
         default:
-            auto1Type = 0;
+            numAuto1Type = 0;
+            break;
     }
 
-    switch (auto2.type) {
+    switch (auto2Type) {
         case "roadster":
-            auto1Type = 5;
+            numAuto2Type = 5;
+            break;
         case "pickup": 
-            auto1Type = 4;
+            numAuto2Type = 4;
+            break;
         case "suv": 
-            auto1Type = 3;
+            numAuto2Type = 3;
+            break;
         case "wagon":
-            auto1Type = 2;
+            numAuto2Type = 2;
+            break;
         default:
-            auto1Type = 0;
+            numAuto2Type = 0;
+            break;
     }
 
-    return (auto1Type > auto2Type);
+    return (numAuto1Type > numAuto2Type);
 }
 
 Automobile.prototype.logMe = function(boolInput) {
@@ -150,13 +163,14 @@ The cars sorted by type are:
 As an example of the content in the parenthesis:
 1990 Ford F-150 */
 
+// newest to oldest
 console.log("***** \nThe cars sorted by year are: ");
 sortArr(yearComparator, automobiles);
 for (let i = 0; i < automobiles.length; i++) {
     automobiles[i].logMe(false);
 }
 
-
+// alphabetically
 console.log("\n\nThe cars sorted by make are:");
 sortArr(makeComparator, automobiles);
 
@@ -164,6 +178,7 @@ for (let i = 0; i < automobiles.length; i++) {
     automobiles[i].logMe(false);
 }
 
+// roadster, pickup, suv, wagon
 console.log("\n\nThe cars sorted by type are:");
 sortArr(typeComparator, automobiles);
 
