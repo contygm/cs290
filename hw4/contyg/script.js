@@ -102,13 +102,21 @@ function insertButtons() {
     document.body.appendChild(markCell);
 }
 
-function moveCell(row, col) {
-    console.log("move cell")
+function moveCell(event) {
+    const btnId = event.target.getAttribute("id");
+    const btn = document.getElementById(btnId);
+    const row = btn.getAttribute("row");
+    console.log("move cell", row, btn);
 }
 
 function mark(row, col) {
-    console.log("mark cell")
+    const rowId = "#row" + row;
+    var container = document.querySelector(rowId);
+    var cell = container.querySelectorAll(`td[col='${col}']`);
+    cell[0].style.backgroundColor = "yellow";
+    console.log("mark cell", cell)
 }
 
 createTable();
 insertButtons();
+mark(1, 1);
