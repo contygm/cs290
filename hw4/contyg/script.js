@@ -47,6 +47,7 @@ function createTable() {
             cell.style.border = "1px solid black";
             cell.setAttribute("row", i);
             cell.setAttribute("col", j);
+            cell.setAttribute("selected", false);
         }
 
         // add row
@@ -103,20 +104,61 @@ function insertButtons() {
 }
 
 function moveCell(event) {
+    const oldCell = document.querySelector(`td[selected=true]`);
+    let row = oldCell.getAttribute("row");
+    let col = oldCell.getAttribute("col");
+
+    oldCell.style.borderWidth = "1px";
+    oldCell.setAttribute("selected", false);
+
+    console.log("old cell", oldCell)
     const btnId = event.target.getAttribute("id");
-    const btn = document.getElementById(btnId);
-    const row = btn.getAttribute("row");
-    console.log("move cell", row, btn);
+    
+    console.log(btnId);
+    switch(btnId) {
+        case "upBtn":
+            if(row > 1) {
+                row--;
+            }
+            break;
+        case "downBtn":
+            if(row < 3) {
+                row++;
+            }
+            break;
+        case "leftBtn":
+            if(col > 1) {
+                col--;
+            }
+            break;
+        case "rightBtn":
+            if(col < 4) {
+                col++;
+            }
+            break;
+        default:
+            break;
+    }
+    selectCell(row, col);
+    console.log("move cell, position", row, col);
+
 }
 
-function mark(row, col) {
-    const rowId = "#row" + row;
-    var container = document.querySelector(rowId);
-    var cell = container.querySelectorAll(`td[col='${col}']`);
+function selectCell(rowNum, col) {
+    const rowId = "#row" + rowNum;
+    const row = document.querySelector(rowId);
+    const cell = row.querySelectorAll(`td[col='${col}']`);
+    cell[0].style.borderWidth = "thick";
+    cell[0].setAttribute("selected", true);
+}
+
+function mark(rowNum, col) {
+    const rowId = "#row" + rowNum;
+    const row = document.querySelector(rowId);
+    const cell = row.querySelectorAll(`td[col='${col}']`);
     cell[0].style.backgroundColor = "yellow";
-    console.log("mark cell", cell)
 }
 
 createTable();
 insertButtons();
-mark(1, 1);
+selectCell(1, 1);
