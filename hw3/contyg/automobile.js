@@ -136,7 +136,7 @@ Automobile.prototype.logMe = function(boolInput) {
  * and closing 5 stars. All values in parenthesis should be replaced with appropriate 
  * values. Each line is a seperate call to console.log.
 
-TODO: Each line representing a car should be produced via a logMe function. 
+Each line representing a car should be produced via a logMe function. 
 This function should be added to the Automobile class and accept a single 
 boolean argument. If the argument is 'true' then it prints "year make model type" 
 with the year, make, model and type being the values appropriate for the automobile. 
