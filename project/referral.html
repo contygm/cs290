@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Detention Tracker</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="./index.html">Detention Tracker</a>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="./attendance.html">Attendance</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./email.html">Email</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./referral.html">Referral</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Database</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>REFERRAL</h1>
+
+    <form action="" method="post">
+        <div class="form-group">
+            <label for="firstName">Student First Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="John">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Student Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Doe">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Student Grade</label>
+            <input type="number" class="form-control" id="datedReferred" placeholder="8">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Teacher Name</label>
+            <input type="text" class="form-control" id="teacherName" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Teacher Email</label>
+            <input type="email" class="form-control" id="teacherEmail" placeholder="jane.doe@skool.edu">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Date Referred</label>
+            <input type="date" class="form-control" id="datedReferred" placeholder="11/12/2019">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Reason Referred</label>
+            <input type="date" class="form-control" id="datedReferred" placeholder="11/12/2019">
+        </div>
+        
+
+    </form>
+
+    <script src="referral.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
