@@ -12,13 +12,19 @@
           const input = document.getElementById('zipCode').value;
           // send request
           var req = new XMLHttpRequest();
-          req.open("GET", `http://api.openweathermap.org/data/2.5/weather?zip=${input}&appid=fa7d80c48643dfadde2cced1b1be6ca1`, false);
+          req.open("POST", `http://api.openweathermap.org/data/2.5/weather?zip=${input}&appid=fa7d80c48643dfadde2cced1b1be6ca1`, false);
+
+          req.addEventListener('load',function(){
+            if(req.status >= 200 && req.status < 400){
+              // show response
+              var response = JSON.parse(req.responseText);
+              document.getElementById('mainRes').textContent = response.weather[0].main;
+              document.getElementById('descriptionRes').textContent = response.weather[0].description;
+            } else {
+              console.log("Error in network request: " + req.statusText);
+            }});
+
           req.send(null);
-          
-          // show response
-          var response = JSON.parse(req.responseText);
-          document.getElementById('mainRes').textContent = response.weather[0].main;
-          document.getElementById('descriptionRes').textContent = response.weather[0].description;
           event.preventDefault();
         })
 
@@ -28,12 +34,16 @@
           //send request
           var req = new XMLHttpRequest();
           req.open("GET", `http://api.openweathermap.org/data/2.5/weather?q=${input}&appid=fa7d80c48643dfadde2cced1b1be6ca1`, false);
+          req.addEventListener('load',function(){
+            if(req.status >= 200 && req.status < 400){
+              // show response
+              var response = JSON.parse(req.responseText);
+              document.getElementById('mainRes').textContent = response.weather[0].main;
+              document.getElementById('descriptionRes').textContent = response.weather[0].description;
+            } else {
+              console.log("Error in network request: " + req.statusText);
+          }});
           req.send(null);
-
-          // show response
-          var response = JSON.parse(req.responseText);
-          document.getElementById('mainRes').textContent = response.weather[0].main;
-          document.getElementById('descriptionRes').textContent = response.weather[0].description;
           event.preventDefault();
         })
       }
