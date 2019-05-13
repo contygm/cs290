@@ -104,17 +104,18 @@ function insertButtons() {
 }
 
 function moveCell(event) {
+    // get old cell
     const oldCell = document.querySelector(`td[selected=true]`);
     let row = oldCell.getAttribute("row");
     let col = oldCell.getAttribute("col");
 
+    // unselect old cell
     oldCell.style.borderWidth = "1px";
     oldCell.setAttribute("selected", false);
 
-    console.log("old cell", oldCell)
     const btnId = event.target.getAttribute("id");
     
-    console.log(btnId);
+    // move selected cell
     switch(btnId) {
         case "upBtn":
             if(row > 1) {
@@ -139,9 +140,8 @@ function moveCell(event) {
         default:
             break;
     }
-    selectCell(row, col);
-    console.log("move cell, position", row, col);
 
+    selectCell(row, col);
 }
 
 function selectCell(rowNum, col) {
@@ -152,11 +152,9 @@ function selectCell(rowNum, col) {
     cell[0].setAttribute("selected", true);
 }
 
-function mark(rowNum, col) {
-    const rowId = "#row" + rowNum;
-    const row = document.querySelector(rowId);
-    const cell = row.querySelectorAll(`td[col='${col}']`);
-    cell[0].style.backgroundColor = "yellow";
+function mark() {
+    const cell = document.querySelector(`td[selected=true]`);
+    cell.style.backgroundColor = "yellow";
 }
 
 createTable();

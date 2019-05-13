@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var apiKey = 'AIzaSyAh2sUzWPm-pRQCbgyZijqWcKGFcoXeK2o';
+
+      document.addEventListener('DOMContentLoaded', bindButtons);
+
+      function bindButtons(){
+        // zip code buttn
+        document.getElementById('zipSubmit').addEventListener('click', function(event){
+          console.log(document.getElementById('zipCode').value)
+          const input = document.getElementById('zipCode').value;
+          // send request
+          var req = new XMLHttpRequest();
+          req.open("GET", `http://api.openweathermap.org/data/2.5/weather?zip=${input}&appid=fa7d80c48643dfadde2cced1b1be6ca1`, false);
+          req.send(null);
+          console.log(JSON.parse(req.responseText));
+          
+          // show response
+          var response = JSON.parse(req.responseText);
+          document.getElementById('mainRes').textContent = response.weather[0].main;
+          document.getElementById('descriptionRes').textContent = response.weather[0].description;
+          event.preventDefault();
+        })
+
+        // city button
+        document.getElementById('citySubmit').addEventListener('click', function(event){
+          console.log(document.getElementById('cityName').value)
+          const input = document.getElementById('cityName').value;
+          //send request
+          var req = new XMLHttpRequest();
+          req.open("GET", `http://api.openweathermap.org/data/2.5/weather?q=${input}&appid=fa7d80c48643dfadde2cced1b1be6ca1`, false);
+          req.send(null);
+          console.log(JSON.parse(req.responseText));
+
+          // show response
+          var response = JSON.parse(req.responseText);
+          document.getElementById('mainRes').textContent = response.weather[0].main;
+          document.getElementById('descriptionRes').textContent = response.weather[0].description;
+          event.preventDefault();
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>By zip</legend>
+        <label for="longUrl">Zip code and country intials: </label>
+        <input type="text" name="zipCode" id="zipCode" placeholder="98104, us">
+        <input type="submit" id="zipSubmit">
+      </fieldset>
+      <fieldset>
+        <legend>By city</legend>
+        <label for="longUrl">City & country initials: </label>
+        <input type="text" name="cityName" id="cityName" placeholder="seattle, us">
+        <input type="submit" id="citySubmit">
+      </fieldset>
+    </form>
+    <div>
+      <h2>Weather</h2>
+      <ul>
+        <li><span>Expected: </span><span id="mainRes"></span></li>
+        <li><span>Description: </span><span id="descriptionRes"></span></li>
+      </ul>
+    </div>
+  </body>
+</html>
