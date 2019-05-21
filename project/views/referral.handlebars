@@ -15,7 +15,11 @@
             <input type="number" class="form-control" id="datedReferred" placeholder="8">
         </div>
         <div class="form-group">
-            <label for="lastName">Teacher Name</label>
+            <label for="lastName">Teacher First Name</label>
+            <input type="text" class="form-control" id="teacherName" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Teacher Last Name</label>
             <input type="text" class="form-control" id="teacherName" placeholder="Jane Doe">
         </div>
         <div class="form-group">
@@ -30,7 +34,16 @@
             <label for="lastName">Reason Referred</label>
             <input type="date" class="form-control" id="datedReferred" placeholder="11/12/2019">
         </div>
+        {{!-- TODO: other, add note --}}
+        <div class="form-group">
+            <label for="lastName">If other, please fill out:</label>
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Serve Date</label>
+            <input type="date" class="form-control" id="datedReferred" placeholder="11/12/2019">
+        </div>
         
-
+        <button class="btn btn-info my-4 btn-block" type="submit">Submit</button>
     </form>
 </div>
