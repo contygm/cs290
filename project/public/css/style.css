@@ -4,10 +4,20 @@ html, body {
 }
 .content {
     min-height: 100%;
-    margin-bottom: -100px;
+    margin: 10px;
 }
 
 .page-footer .row{
     background-color: aquamarine;
-    height: 120px;
+    height: 130px;
+    padding: 5px;
+}
+
+.carousel {
+    float: left;
+    padding: 10px;
+}
+
+.home-info {
+    float: right;
 }

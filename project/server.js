@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+// important for getting CSS
 app.use(express.static(__dirname + '/public'));
 
 app.engine('handlebars', handlebars.engine);
