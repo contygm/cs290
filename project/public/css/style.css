@@ -7,7 +7,7 @@ html, body {
     margin: 10px;
 }
 
-.page-footer .row{
+.footer-content {
     background-color: aquamarine;
     height: 130px;
     padding: 5px;
@@ -20,4 +20,9 @@ html, body {
 
 .home-info {
     float: right;
+}
+
+.referral-form {
+    max-height: 650px;
+    overflow: scroll;
 }
