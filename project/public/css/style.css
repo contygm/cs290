@@ -1,10 +1,18 @@
+
+/* 
+==================================
+    STICKY FOOTER SECTION (main)
+==================================
+*/
 html, body {
     height: 100%;
     margin: 0;
 }
+
 .content {
     min-height: 100%;
     margin: 10px;
+    max-width: 100%;
 }
 
 .footer-content {
@@ -13,6 +21,11 @@ html, body {
     padding: 5px;
 }
 
+/* 
+==================================
+    HOME SECTION 
+==================================
+*/
 .carousel {
     float: left;
     padding: 10px;
@@ -22,7 +35,52 @@ html, body {
     float: right;
 }
 
-.referral-form {
-    max-height: 650px;
-    overflow: scroll;
+/* 
+==================================
+    ATTENDANCE SECTION 
+==================================
+*/
+
+.student-table-wrapper {
+    overflow-x:auto;
+    overflow-y:auto;
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+}
+
+.student-table th {
+    text-align: center;
+}
+
+.first-header-row {
+    /* max-width: 250px; */
+    width: auto;
+}
+
+.table-header-date {
+    text-align: center;
+}
+
+.table-header-name {
+    width: auto;
+}
+
+.table-header-reason {
+    min-width: 250px;
+}
+
+.table-header-number {
+    width: auto;
+    text-align: center;
+}
+
+.stud-present {
+    text-align: center;
+}
+
+.attendanceHeaderRow {
+    overflow: hidden;
+    width: 100%;
+    margin: 5px 10px;
 }

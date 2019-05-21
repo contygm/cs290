@@ -29,6 +29,10 @@ app.get('/referral', function(req,res){
   res.render('referral');
 });
 
+app.get('/referral/submit', function(req,res){
+  res.render('refer-submit');
+});
+
 // TODO: do it or delete it
 // app.use(function(req,res){
 //   res.status(404);

@@ -1,2 +1,84 @@
-<div class="content"><h1>ATTENDANCE</h1></div>
-<script src="../js/attendance.js"></script>
+<div class="content">
+    <div class="attendanceHeaderRow row justify-content-between">
+        <h1 class="attendanceHeader col-md-6">ATTENDANCE</h1>
+        <button class="submitAttendance btn btn-info col-1" type="submit">Submit</button>
+    </div>
+    
+    <div class="student-table-wrapper">
+        <table class="table table-striped student-table">
+            <thead>
+                {{!-- first header row --}}
+                <tr>
+                    <th scope="col" colspan="2" class="first-header-row"></th>
+                    <th scope="col" colspan="4" class="first-header-row">Student </th>
+                    <th scope="col" colspan="3" class="first-header-row">Teacher</th>
+                    <th scope="col" colspan="4" class="first-header-row">Referral</th>
+                </tr>
+                {{!-- second header row --}}
+                <tr>
+                    <th scope="col" class="table-header-number">#</th>
+                    <th scope="col" class="table-header-number">Present</th>
+                    {{!-- Student --}}
+                    <th scope="col" class="table-header-name">First Name</th>
+                    <th scope="col" class="table-header-name">Last Name</th>
+                    <th scope="col" class="table-header-number">Grade</th>
+                    {{!-- Teacher --}}
+                    <th scope="col" class="table-header-name">First Name</th>
+                    <th scope="col" class="table-header-name">Last Name</th>
+                    <th scope="col" class="table-header-name">Email</th>
+                    {{!-- Referral --}}
+                    <th scope="col" class="table-header-date">Date Made</th>
+                    <th scope="col" class="table-header-reason">Reason</th>
+                    <th scope="col" class="table-header-number">Status</th>
+                    <th scope="col" class="table-header-date">Served On</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td class="stud-present"><input type="checkbox" name="stud-present-1" id="stud-present-1"></td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>8</td>
+                    <td>Judy</td>
+                    <td>McDonald</td>
+                    <td>mark.McDonald@skool.edu</td>
+                    <td>11/12/2109</td>
+                    <td>Excessive talking</td>
+                    <td scope="col">Served</th>
+                    <td>11/14/2019</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td class="stud-present"><input type="checkbox" name="stud-present-1" id="stud-present-1"></td>
+                    <td>Mark</td>
+                    <td>BigLastNameNStuffYup</td>
+                    <td>8</td>
+                    <td>Judy</td>
+                    <td>McDonald</td>
+                    <td>mark.McDonald@skool.edu</td>
+                    <td>11/12/2109</td>
+                    <td>Ribeye sausage picanha shank. Ham hock ball tip biltong bacon kevin pastrami. 
+                Shoulder buffalo capicola ground round beef ribs biltong boudin kevin.</td>
+                    <td scope="col">Served</th>
+                    <td>11/14/2019</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td class="stud-present"><input type="checkbox" name="stud-present-1" id="stud-present-1"></td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>8</td>
+                    <td>Judy</td>
+                    <td>McDonald</td>
+                    <td>mark@skool.edu</td>
+                    <td>11/12/2109</td>
+                    <td>Excessive talking</td>
+                    <td scope="col">Served</th>
+                    <td>11/14/2019</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
