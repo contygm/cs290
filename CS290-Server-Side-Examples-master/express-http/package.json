@@ -1,8 +1,8 @@
 {
-  "name": "detention-tracker",
+  "name": "hello-world",
   "version": "1.0.0",
-  "description": "proof of concept: detention-tracker application for teachers",
-  "main": "server.js",
+  "description": "Hello world with express and node.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,9 +11,9 @@
   "dependencies": {
     "body-parser": "^1.13.3",
     "express": "^4.13.2",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^2.0.1",
     "express-session": "^1.11.3",
-    "fs": "0.0.1-security",
-    "mysql": "^2.8.0"
+    "mysql": "^2.8.0",
+    "request": "^2.65.0"
   }
 }

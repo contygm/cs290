@@ -1,0 +1,484 @@
+{
+	"student-count": 20,
+	"allStudents": [{
+			"_id": 0,
+			"date": "02/28/2018",
+			"reason": 3,
+			"otherDescription": "veniam pariatur consectetur est velit esse pariatur",
+			"timeServed": {
+				"status": 2,
+				"date": "10/11/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Rebekah",
+					"last": "Spencer"
+				},
+				"email": "rebekah.spencer@undefined.io"
+			},
+			"student": {
+				"name": {
+					"first": "Copeland",
+					"last": "Espinoza"
+				},
+				"grade": 8
+			}
+		},
+		{
+			"_id": 1,
+			"date": "05/16/2018",
+			"reason": 2,
+			"otherDescription": "anim tempor nostrud labore deserunt do proident",
+			"timeServed": {
+				"status": 2,
+				"date": "01/28/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Katelyn",
+					"last": "Rosario"
+				},
+				"email": "katelyn.rosario@undefined.biz"
+			},
+			"student": {
+				"name": {
+					"first": "Ford",
+					"last": "Salazar"
+				},
+				"grade": 11
+			}
+		},
+		{
+			"_id": 2,
+			"date": "01/13/2019",
+			"reason": 2,
+			"otherDescription": "veniam in officia amet velit nulla irure",
+			"timeServed": {
+				"status": 2,
+				"date": "03/11/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Cain",
+					"last": "Dyer"
+				},
+				"email": "cain.dyer@undefined.name"
+			},
+			"student": {
+				"name": {
+					"first": "Jasmine",
+					"last": "Hester"
+				},
+				"grade": 11
+			}
+		},
+		{
+			"_id": 3,
+			"date": "01/30/2018",
+			"reason": 3,
+			"otherDescription": "deserunt ut sint enim sunt minim enim",
+			"timeServed": {
+				"status": 3,
+				"date": "03/29/2019"
+			},
+			"teacher": {
+				"name": {
+					"first": "Letitia",
+					"last": "Franco"
+				},
+				"email": "letitia.franco@undefined.net"
+			},
+			"student": {
+				"name": {
+					"first": "Huffman",
+					"last": "Cox"
+				},
+				"grade": 10
+			}
+		},
+		{
+			"_id": 4,
+			"date": "03/22/2019",
+			"reason": 5,
+			"otherDescription": "aliquip magna velit adipisicing fugiat proident reprehenderit",
+			"timeServed": {
+				"status": 1,
+				"date": "05/04/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Luann",
+					"last": "Garrett"
+				},
+				"email": "luann.garrett@undefined.us"
+			},
+			"student": {
+				"name": {
+					"first": "Katrina",
+					"last": "Cobb"
+				},
+				"grade": 9
+			}
+		},
+		{
+			"_id": 5,
+			"date": "03/08/2018",
+			"reason": 5,
+			"otherDescription": "ut officia ad qui do ullamco aliquip",
+			"timeServed": {
+				"status": 1,
+				"date": "01/05/2019"
+			},
+			"teacher": {
+				"name": {
+					"first": "Ofelia",
+					"last": "Serrano"
+				},
+				"email": "ofelia.serrano@undefined.ca"
+			},
+			"student": {
+				"name": {
+					"first": "Susanna",
+					"last": "Kirby"
+				},
+				"grade": 10
+			}
+		},
+		{
+			"_id": 6,
+			"date": "09/30/2018",
+			"reason": 2,
+			"otherDescription": "consectetur do ipsum ipsum laborum aliqua exercitation",
+			"timeServed": {
+				"status": 0,
+				"date": "02/05/2019"
+			},
+			"teacher": {
+				"name": {
+					"first": "Hattie",
+					"last": "Paul"
+				},
+				"email": "hattie.paul@undefined.info"
+			},
+			"student": {
+				"name": {
+					"first": "Hays",
+					"last": "Brady"
+				},
+				"grade": 12
+			}
+		},
+		{
+			"_id": 7,
+			"date": "01/19/2019",
+			"reason": 3,
+			"otherDescription": "proident officia irure labore magna consectetur ullamco",
+			"timeServed": {
+				"status": 2,
+				"date": "02/15/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Neal",
+					"last": "Rice"
+				},
+				"email": "neal.rice@undefined.me"
+			},
+			"student": {
+				"name": {
+					"first": "Murray",
+					"last": "Wells"
+				},
+				"grade": 11
+			}
+		},
+		{
+			"_id": 8,
+			"date": "04/26/2019",
+			"reason": 0,
+			"otherDescription": "nisi sit aliquip quis aliquip et cillum",
+			"timeServed": {
+				"status": 0,
+				"date": "05/03/2019"
+			},
+			"teacher": {
+				"name": {
+					"first": "Penny",
+					"last": "Forbes"
+				},
+				"email": "penny.forbes@undefined.com"
+			},
+			"student": {
+				"name": {
+					"first": "Bertha",
+					"last": "Mckee"
+				},
+				"grade": 8
+			}
+		},
+		{
+			"_id": 9,
+			"date": "03/10/2018",
+			"reason": 2,
+			"otherDescription": "Lorem tempor anim dolor ea nostrud labore",
+			"timeServed": {
+				"status": 0,
+				"date": "11/30/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Irwin",
+					"last": "Holcomb"
+				},
+				"email": "irwin.holcomb@undefined.biz"
+			},
+			"student": {
+				"name": {
+					"first": "Alyssa",
+					"last": "Marks"
+				},
+				"grade": 11
+			}
+		},
+		{
+			"_id": 10,
+			"date": "08/10/2018",
+			"reason": 5,
+			"otherDescription": "sunt tempor do incididunt id aute cillum",
+			"timeServed": {
+				"status": 2,
+				"date": "09/17/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Buck",
+					"last": "Wheeler"
+				},
+				"email": "buck.wheeler@undefined.co.uk"
+			},
+			"student": {
+				"name": {
+					"first": "Aida",
+					"last": "Vang"
+				},
+				"grade": 12
+			}
+		},
+		{
+			"_id": 11,
+			"date": "07/10/2018",
+			"reason": 0,
+			"otherDescription": "voluptate tempor voluptate commodo aliqua aliqua ut",
+			"timeServed": {
+				"status": 1,
+				"date": "05/24/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "King",
+					"last": "Valentine"
+				},
+				"email": "king.valentine@undefined.org"
+			},
+			"student": {
+				"name": {
+					"first": "Walton",
+					"last": "Mcknight"
+				},
+				"grade": 9
+			}
+		},
+		{
+			"_id": 12,
+			"date": "11/26/2018",
+			"reason": 2,
+			"otherDescription": "qui adipisicing qui elit dolor ad pariatur",
+			"timeServed": {
+				"status": 0,
+				"date": "05/04/2019"
+			},
+			"teacher": {
+				"name": {
+					"first": "Rodgers",
+					"last": "Tanner"
+				},
+				"email": "rodgers.tanner@undefined.io"
+			},
+			"student": {
+				"name": {
+					"first": "Bernadette",
+					"last": "Copeland"
+				},
+				"grade": 8
+			}
+		},
+		{
+			"_id": 13,
+			"date": "11/05/2018",
+			"reason": 6,
+			"otherDescription": "ea incididunt enim deserunt cillum tempor ea",
+			"timeServed": {
+				"status": 2,
+				"date": "08/12/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Bolton",
+					"last": "Parks"
+				},
+				"email": "bolton.parks@undefined.biz"
+			},
+			"student": {
+				"name": {
+					"first": "Valarie",
+					"last": "Rollins"
+				},
+				"grade": 7
+			}
+		},
+		{
+			"_id": 14,
+			"date": "09/17/2018",
+			"reason": 7,
+			"otherDescription": "ad aliquip Lorem sit elit amet magna",
+			"timeServed": {
+				"status": 2,
+				"date": "05/16/2019"
+			},
+			"teacher": {
+				"name": {
+					"first": "Dixie",
+					"last": "Marsh"
+				},
+				"email": "dixie.marsh@undefined.name"
+			},
+			"student": {
+				"name": {
+					"first": "Waller",
+					"last": "King"
+				},
+				"grade": 7
+			}
+		},
+		{
+			"_id": 15,
+			"date": "12/18/2018",
+			"reason": 2,
+			"otherDescription": "duis quis consectetur voluptate consequat ipsum quis",
+			"timeServed": {
+				"status": 2,
+				"date": "07/04/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Annie",
+					"last": "Campbell"
+				},
+				"email": "annie.campbell@undefined.net"
+			},
+			"student": {
+				"name": {
+					"first": "Teri",
+					"last": "Mitchell"
+				},
+				"grade": 7
+			}
+		},
+		{
+			"_id": 16,
+			"date": "02/16/2018",
+			"reason": 3,
+			"otherDescription": "consectetur proident elit mollit dolore esse dolore",
+			"timeServed": {
+				"status": 2,
+				"date": "06/23/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Alta",
+					"last": "Benjamin"
+				},
+				"email": "alta.benjamin@undefined.us"
+			},
+			"student": {
+				"name": {
+					"first": "Schultz",
+					"last": "Barrett"
+				},
+				"grade": 12
+			}
+		},
+		{
+			"_id": 17,
+			"date": "03/05/2018",
+			"reason": 3,
+			"otherDescription": "amet ipsum ea consequat laborum eiusmod cillum",
+			"timeServed": {
+				"status": 0,
+				"date": "06/09/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Angela",
+					"last": "Woodard"
+				},
+				"email": "angela.woodard@undefined.ca"
+			},
+			"student": {
+				"name": {
+					"first": "Nona",
+					"last": "Faulkner"
+				},
+				"grade": 8
+			}
+		},
+		{
+			"_id": 18,
+			"date": "04/02/2019",
+			"reason": 4,
+			"otherDescription": "ex nulla labore officia minim adipisicing nisi",
+			"timeServed": {
+				"status": 3,
+				"date": "02/23/2019"
+			},
+			"teacher": {
+				"name": {
+					"first": "Chang",
+					"last": "Rivers"
+				},
+				"email": "chang.rivers@undefined.info"
+			},
+			"student": {
+				"name": {
+					"first": "Pamela",
+					"last": "Bradshaw"
+				},
+				"grade": 7
+			}
+		},
+		{
+			"_id": 19,
+			"date": "05/09/2019",
+			"reason": 4,
+			"otherDescription": "qui nulla officia ad Lorem quis aute",
+			"timeServed": {
+				"status": 2,
+				"date": "02/18/2018"
+			},
+			"teacher": {
+				"name": {
+					"first": "Jan",
+					"last": "Cook"
+				},
+				"email": "jan.cook@undefined.me"
+			},
+			"student": {
+				"name": {
+					"first": "Mabel",
+					"last": "Burks"
+				},
+				"grade": 8
+			}
+		}
+	]
+}

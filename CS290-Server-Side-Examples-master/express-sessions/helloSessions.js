@@ -2,39 +2,38 @@ var express = require('express');
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
+var session = require('express-session');
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(session({secret:'SuperSecretPassword'}));
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 4000);
+app.set('port', 3000);
 
-app.get('/',function(req,res){
-  res.render('home');
+app.get('/count',function(req,res){
+  var context = {};
+  context.count = req.session.count || 0;
+  req.session.count = context.count + 1;
+  res.render('counter', context);
 });
 
-app.get('/show-me-the-data',function(req,res){
-  var qParams = [];
-  for (var p in req.query){
-    qParams.push({'name':p,'value':req.query[p]})
-  }
+app.post('/count',function(req,res){
   var context = {};
-  context.dataList = qParams;
-  res.render('get-req', context);
-});
-
-app.post('/show-me-the-data', function(req,res){
-  var qParams = [];
-  for (var p in req.body){
-    qParams.push({'name':p,'value':req.body[p]})
+  if(req.body.command === "resetCount"){
+    //req.session.count = 0;
+    req.session.destroy();
+  } else {
+    context.err = true;
   }
-  console.log(qParams);
-  console.log(req.body);
-  var context = {};
-  context.dataList = qParams;
-  res.render('post-reqn', context);
+  if(req.session){
+    context.count = req.session.count;
+  } else {
+    context.count = 0;
+  }
+  req.session.count = context.count + 1;
+  res.render('counter', context);
 });
 
 app.use(function(req,res){

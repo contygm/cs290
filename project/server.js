@@ -1,4 +1,8 @@
 var express = require('express');
+var fs = require('fs');
+var monitors = require('./json/monitors');
+var referrals = require('./json/referrals');
+
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
@@ -18,6 +22,9 @@ app.get('/',function(req,res){
 });
 
 app.get('/attendance',function(req,res){
+  console.log("MONITORS", monitors);
+  console.log("REFERRALS", referrals);
+
   res.render('attendance');
 });
 
