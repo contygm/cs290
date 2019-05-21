@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.content {
+    min-height: 100%;
+    margin-bottom: -100px;
+}
+
+.page-footer .row{
+    background-color: aquamarine;
+    height: 120px;
+}
