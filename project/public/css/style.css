@@ -45,7 +45,7 @@ html, body {
     overflow-x:auto;
     overflow-y:auto;
     max-width: 90%;
-    max-height: 90%;
+    max-height: 900px;
     margin: auto;
 }
 
@@ -84,6 +84,11 @@ html, body {
     width: 100%;
     margin: 5px 10px;
 }
+
+.left-border {
+    border-left: 1px solid black;
+}
+
 
 /* 
 ==================================

@@ -11,74 +11,47 @@
                 {{!-- first header row --}}
                 <tr>
                     <th scope="col" colspan="2" class="first-header-row"></th>
-                    <th scope="col" colspan="4" class="first-header-row">Student </th>
-                    <th scope="col" colspan="3" class="first-header-row">Teacher</th>
-                    <th scope="col" colspan="4" class="first-header-row">Referral</th>
+                    <th scope="col" colspan="3" class="first-header-row left-border">Student </th>
+                    <th scope="col" colspan="3" class="first-header-row left-border">Teacher</th>
+                    <th scope="col" colspan="4" class="first-header-row left-border">Referral</th>
                 </tr>
                 {{!-- second header row --}}
                 <tr>
                     <th scope="col" class="table-header-number">#</th>
                     <th scope="col" class="table-header-number">Present</th>
                     {{!-- Student --}}
-                    <th scope="col" class="table-header-name">First Name</th>
+                    <th scope="col" class="table-header-name left-border">First Name</th>
                     <th scope="col" class="table-header-name">Last Name</th>
                     <th scope="col" class="table-header-number">Grade</th>
                     {{!-- Teacher --}}
-                    <th scope="col" class="table-header-name">First Name</th>
+                    <th scope="col" class="table-header-name left-border">First Name</th>
                     <th scope="col" class="table-header-name">Last Name</th>
                     <th scope="col" class="table-header-name">Email</th>
                     {{!-- Referral --}}
-                    <th scope="col" class="table-header-date">Date Made</th>
+                    <th scope="col" class="table-header-date left-border">Date Made</th>
                     <th scope="col" class="table-header-reason">Reason</th>
-                    <th scope="col" class="table-header-number">Status</th>
+                    <th scope="col" class="table-header-date">Status</th>
                     <th scope="col" class="table-header-date">Served On</th>
 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td class="stud-present"><input type="checkbox" name="stud-present-1" id="stud-present-1"></td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>8</td>
-                    <td>Judy</td>
-                    <td>McDonald</td>
-                    <td>mark.McDonald@skool.edu</td>
-                    <td>11/12/2109</td>
-                    <td>Excessive talking</td>
-                    <td scope="col">Served</th>
-                    <td>11/14/2019</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td class="stud-present"><input type="checkbox" name="stud-present-1" id="stud-present-1"></td>
-                    <td>Mark</td>
-                    <td>BigLastNameNStuffYup</td>
-                    <td>8</td>
-                    <td>Judy</td>
-                    <td>McDonald</td>
-                    <td>mark.McDonald@skool.edu</td>
-                    <td>11/12/2109</td>
-                    <td>Ribeye sausage picanha shank. Ham hock ball tip biltong bacon kevin pastrami. 
-                Shoulder buffalo capicola ground round beef ribs biltong boudin kevin.</td>
-                    <td scope="col">Served</th>
-                    <td>11/14/2019</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td class="stud-present"><input type="checkbox" name="stud-present-1" id="stud-present-1"></td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>8</td>
-                    <td>Judy</td>
-                    <td>McDonald</td>
-                    <td>mark@skool.edu</td>
-                    <td>11/12/2109</td>
-                    <td>Excessive talking</td>
-                    <td scope="col">Served</th>
-                    <td>11/14/2019</td>
-                </tr>
+                {{#each all_referrals}}
+                    <tr>
+                        <th scope="row">{{inc @index}}</th>
+                        <td class="stud-present"><input type="checkbox" name="stud-present-1" id="stud-present-1"></td>
+                        <td class="stud-first left-border">{{this.student.name.first}}</td>
+                        <td class="stud-last">{{this.student.name.last}}</td>
+                        <td class="stud-grade">{{this.student.grade}}</td>
+                        <td class="teach-first left-border">{{this.teacher.name.first}}</td>
+                        <td class="teach-last">{{this.teacher.name.last}}</td>
+                        <td class="teach-email">{{this.teacher.email}}</td>
+                        <td class="ref-date left-border">{{this.date}}</td>
+                        <td class="ref-reason">{{this.reason}}; {{this.other_description}}</td>
+                        <td class="ref-status" scope="col">{{this.time_served.status}}</th>
+                        <td class="ref-served-date">{{this.time_served.date}}</td>
+                    </tr>
+                {{/each}}
             </tbody>
         </table>
     </div>

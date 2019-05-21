@@ -1,5 +1,5 @@
 {
-	"all-monitors": [{
+	"all_monitors": [{
 			"_id": 0,
 			"name": {
 				"first": "Bernadine",
@@ -64,5 +64,5 @@
 			"email": "jolene.langley@undefined.info"
 		}
 	],
-	"monitor-count": 7
+	"monitor_count": 7
 }

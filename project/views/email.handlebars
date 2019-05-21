@@ -8,21 +8,21 @@
         <label for="refer-reason">Student Name</label>
         <select name="refer-reason">
             <option value="" disabled selected>Please select...</option>
-            <option value="hw">Tyrion Lannister</option>
-            <option value="tardy">Ken Smith</option>
-            <option value="other">John Doe</option>
+            {{#each all_referrals}}
+                <option value="{{this.student.name.first}} {{this.student.name.last}}">
+                    {{this.student.name.first}} {{this.student.name.last}}, Grade {{this.student.grade}}
+                </option>
+            {{/each}}
         </select>
-        <label for="stud-grade">Grade</label>
-        <input type="number" class="" id="stud-grade" placeholder="7" min="5" max="12">
     </form>
     <form action="">
         <legend>Select Monitor:</legend>
         <label for="refer-reason">Monitor Name</label>
         <select name="refer-reason">
             <option value="" disabled selected>Please select...</option>
-            <option value="phoneClass">Betty Sue</option>
-            <option value="talking">Selena Myer</option>
-            <option value="backTalk">Arya Stark</option>
+            {{#each all_monitors}}
+                <option value="{{this.email}}">{{this.name.first}} {{this.name.last}}</option>
+            {{/each}}
         </select>
     </form>
     <div class="email-draft">
