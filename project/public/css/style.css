@@ -84,3 +84,21 @@ html, body {
     width: 100%;
     margin: 5px 10px;
 }
+
+/* 
+==================================
+    EMAIL SECTION 
+==================================
+*/
+
+.email-draft {
+    border: 1px solid black;
+    padding: 10px;
+    margin: auto;
+    max-width: 75%;
+    max-height: 75%;
+}
+
+.email-name-date {
+    font-weight: bold;
+}

@@ -1,4 +1,60 @@
 
-<div class="content"><h1>EMAIL</h1></div>
-
-<script src="../js/email.js"></script>
+<div class="content">
+    <div class="attendanceHeaderRow row justify-content-between">
+        <h1 class="attendanceHeader col-md-6">EMAIL</h1>
+    </div>
+    <form action="">
+        <legend>Select Student:</legend>
+        <label for="refer-reason">Student Name</label>
+        <select name="refer-reason">
+            <option value="" disabled selected>Please select...</option>
+            <option value="hw">Tyrion Lannister</option>
+            <option value="tardy">Ken Smith</option>
+            <option value="other">John Doe</option>
+        </select>
+        <label for="stud-grade">Grade</label>
+        <input type="number" class="" id="stud-grade" placeholder="7" min="5" max="12">
+    </form>
+    <form action="">
+        <legend>Select Monitor:</legend>
+        <label for="refer-reason">Monitor Name</label>
+        <select name="refer-reason">
+            <option value="" disabled selected>Please select...</option>
+            <option value="phoneClass">Betty Sue</option>
+            <option value="talking">Selena Myer</option>
+            <option value="backTalk">Arya Stark</option>
+        </select>
+    </form>
+    <div class="email-draft">
+        <p>To: <span class="email-name-date">teacher.email@skool.edu</span></p>
+        <p>From: <span class="email-name-date">monitor.email@skool.edu</span></p>
+        <p>Subject: <span class="email-name-date">STUDENT NAME</span> served detention on <span class="email-name-date">12/21/2019</span></p>
+        
+        <p>Hello <span class="email-name-date">TEACHER NAME</span>,</p>
+        <p>
+            Jelly-o gingerbread icing jelly beans <span class="email-name-date">STUDENT NAME</span> sesame snaps. Croissant cupcake marshmallow. Muffin 
+            sesame snaps cake caramels topping sweet roll marzipan chocolate cupcake. Dragée chupa chups 
+            lollipop fruitcake.
+        </p>
+        <p>
+            Tootsie roll macaroon halvah caramels danish <span class="email-name-date">12/21/2019</span> soufflé icing soufflé. Fruitcake jujubes cookie 
+            bear claw lollipop lemon drops cake tootsie roll. Pastry liquorice gummi bears gingerbread 
+            cheesecake sugar plum cake. Cotton <span class="email-name-date">STATUS</span> brownie chocolate jelly sweet gummi bears.
+        </p>
+        <p>
+            Marzipan marzipan cookie icing carrot cake. Tootsie roll cotton candy macaroon pastry. Chupa 
+            chups chocolate cake cake sugar plum candy canes cookie caramels lollipop. Soufflé muffin 
+            wafer jelly beans caramels sesame snaps.
+        </p>
+        <p>
+            Powder cookie icing gingerbread donut sweet tart pudding. Pie sweet roll cupcake topping 
+            liquorice cookie. Brownie chupa chups dragée macaroon jelly-o jelly pie pudding pie. Toffee 
+            danish jelly pie caramels carrot cake.
+        </p>
+        <p>
+            Thank you, <br>
+                <span class="email-name-date">MONITOR NAME</span>
+        </p>
+    </div>
+    <button class="submitAttendance btn btn-info col-1" type="submit">Send Email</button>
+</div>
