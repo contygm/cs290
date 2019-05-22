@@ -107,3 +107,28 @@ html, body {
 .email-name-date {
     font-weight: bold;
 }
+
+/* 
+==================================
+    ATTENDANCE SECTION 
+==================================
+*/
+
+/* Table coloring based on status */
+.ref-SERVED {
+    background-color: rgb(82, 158, 82);
+}
+
+.ref-NOT_SERVED {
+    background-color: rgb(206, 206, 126);
+}
+
+.ref-EXCUSED {
+    background-color: lightblue;
+}
+
+.ref-VOID {
+    background-color: rgb(145, 144, 144);
+    color: rgb(87, 87, 87);
+    font-style: italic;
+}

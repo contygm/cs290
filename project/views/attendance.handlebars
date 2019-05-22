@@ -6,7 +6,7 @@
     
     <div class="student-table-wrapper">
         {{!-- TODO: cite table --}}
-        <table class="table table-striped student-table">
+        <table class="table student-table">
             <thead>
                 {{!-- first header row --}}
                 <tr>
@@ -37,7 +37,7 @@
             </thead>
             <tbody>
                 {{#each all_referrals}}
-                    <tr>
+                    <tr class="ref-{{this.time_served.status}}">
                         <th scope="row">{{inc @index}}</th>
                         <td class="stud-present"><input type="checkbox" name="stud-present-1" id="stud-present-1"></td>
                         <td class="stud-first left-border">{{this.student.name.first}}</td>
