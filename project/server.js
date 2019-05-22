@@ -32,11 +32,31 @@ app.get('/',function(req,res){
   res.render('home');
 });
 
-app.get('/attendance',function(req,res){
+app.get('/attendance', function(req,res){
   var context = {};
-  context.all_referrals = referrals.all_referrals;
+
+  if(req.query.status) {
+    context.all_referrals = referrals.all_referrals.filter(ref => ref.time_served.status === req.query.status);
+  } else {
+    context.all_referrals = referrals.all_referrals;
+  }
 
   res.render('attendance', context);
+});
+
+app.post('/attendance', function(req,res){
+  console.log("POST", req.body)
+  req.body.refIds.forEach(id => {
+    var ref = referrals.all_referrals.filter(ref => ref._id == id);
+    console.log(id, ref)
+    if (ref[0].time_served.status === "NOT_SERVED") {
+      ref[0].time_served.status = "SERVED";
+    } else {
+      console.warn("ERROR: Status cannot be changed to SERVED for referral with id: " + id + ". Only NOT_SERVED referral can be updated to SERVED");
+    }
+  });
+
+  res.render('attendance', referrals);
 });
 
 app.get('/email', function(req,res){
@@ -50,28 +70,21 @@ app.get('/referral', function(req,res){
   res.render('referral');
 });
 
-// app.post('/referral', function(req,res){
-  //referrals.all_referrals[0].student.name = {"first":"Sally", "last": "Espinoza"};
-//   res.render('refer-submit');
-// });
-
 app.get('/referral/submit', function(req,res){
   res.render('refer-submit');
 });
 
-// TODO: do it or delete it
-// app.use(function(req,res){
-//   res.status(404);
-//   res.render('404');
-// });
+app.use(function(req,res){
+  res.status(404);
+  res.render('404');
+});
 
-// TODO: do it or delete it
-// app.use(function(err, req, res, next){
-//   console.error(err.stack);
-//   res.type('plain/text');
-//   res.status(500);
-//   res.render('500');
-// });
+app.use(function(err, req, res, next){
+  console.error(err.stack);
+  res.type('plain/text');
+  res.status(500);
+  res.render('500');
+});
 
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');

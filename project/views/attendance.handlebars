@@ -1,7 +1,12 @@
 <div class="content">
     <div class="attendanceHeaderRow row justify-content-between">
         <h1 class="attendanceHeader col-md-6">ATTENDANCE</h1>
-        <button class="submitAttendance btn btn-info col-1" type="submit">Submit</button>
+        <a href="/attendance?status=NOT_SERVED" role="button" class="btn btn-warning">Not Served</a>
+        <a href="/attendance?status=VOID" role="button" class="btn btn-secondary">Void</a>
+        <a href="/attendance?status=EXCUSED" role="button" class="btn btn-info">Excused</a>
+        <a href="/attendance?status=SERVED" role="button" class="btn btn-success">Served</a>
+
+        <button class="submitAttendance btn btn-primary" type="submit" onclick="markPresent()">Submit</button>
     </div>
     
     <div class="student-table-wrapper">
@@ -39,7 +44,7 @@
                 {{#each all_referrals}}
                     <tr class="ref-{{this.time_served.status}}">
                         <th scope="row">{{inc @index}}</th>
-                        <td class="stud-present"><input type="checkbox" name="stud-present-1" id="stud-present-1"></td>
+                        <td class="stud-present"><input type="checkbox" name="stud-present" id="{{this._id}}"></td>
                         <td class="stud-first left-border">{{this.student.name.first}}</td>
                         <td class="stud-last">{{this.student.name.last}}</td>
                         <td class="stud-grade">{{this.student.grade}}</td>
