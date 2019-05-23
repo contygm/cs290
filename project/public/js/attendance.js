@@ -8,11 +8,12 @@ function markPresent() {
     var http = new XMLHttpRequest();
     http.open('POST', '/attendance-update', true);
     http.setRequestHeader('Content-type', 'application/json');
-    http.addEventListener('load',function(){
+    http.addEventListener('load', function(){
         if(http.status >= 200 && http.status < 400){
-          location.reload();
+            // reload page with new post info
+            location.reload();
         } else {
-          console.error("Error in network request: " + http.statusText);
+            console.error("Error in network request: " + http.statusText);
         }
       });
     http.send(JSON.stringify(body));

@@ -32,6 +32,8 @@ app.get('/',function(req,res){
   res.render('home');
 });
 
+// gets all referals 
+// OR filters referalls based on time_served.status
 app.get('/attendance', function(req,res){
   var context = {};
 
@@ -44,6 +46,7 @@ app.get('/attendance', function(req,res){
   res.render('attendance', context);
 });
 
+// for marking students present/ detention served
 app.post('/attendance-update', function(req,res){
   req.body.refIds.forEach(id => {
     var idx = referrals.all_referrals.findIndex((element) => element._id == id);
@@ -55,13 +58,13 @@ app.post('/attendance-update', function(req,res){
       console.error("ERROR: Status cannot be changed to SERVED for referral with id: " + id + ". Only NOT_SERVED referral can be updated to SERVED");
     }
   });
-  res.redirect('attendance');
 });
 
 app.get('/email', function(req,res){
   var context = {};
   context.all_monitors = monitors.all_monitors;
   context.all_referrals = referrals.all_referrals;
+  // TODO: reduce referral info
   res.render('email', context);
 });
 
