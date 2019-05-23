@@ -44,19 +44,18 @@ app.get('/attendance', function(req,res){
   res.render('attendance', context);
 });
 
-app.post('/attendance', function(req,res){
-  console.log("POST", req.body)
+app.post('/attendance-update', function(req,res){
   req.body.refIds.forEach(id => {
-    var ref = referrals.all_referrals.filter(ref => ref._id == id);
-    console.log(id, ref)
-    if (ref[0].time_served.status === "NOT_SERVED") {
-      ref[0].time_served.status = "SERVED";
+    var idx = referrals.all_referrals.findIndex((element) => element._id == id);
+    var ref = referrals.all_referrals[idx];
+    
+    if (ref.time_served.status === "NOT_SERVED") {
+      ref.time_served.status = "SERVED";
     } else {
-      console.warn("ERROR: Status cannot be changed to SERVED for referral with id: " + id + ". Only NOT_SERVED referral can be updated to SERVED");
+      console.error("ERROR: Status cannot be changed to SERVED for referral with id: " + id + ". Only NOT_SERVED referral can be updated to SERVED");
     }
   });
-
-  res.render('attendance', referrals);
+  res.redirect('attendance');
 });
 
 app.get('/email', function(req,res){
