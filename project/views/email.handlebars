@@ -6,9 +6,9 @@
     <form action="">
         <legend>Select Student:</legend>
         <label for="refer-reason">Student Name</label>
-        <select id="studentSelect" name="refer-reason" onchange="updateStudent()">
+        <select id="studentSelect" name="refer-reason" onchange="updateReferral()">
             <option value="" disabled selected>Please select...</option>
-            {{#each all_referrals}}
+            {{#each served_referrals}}
                 <option value="{{this._id}}">
                     {{this.student.name.first}} {{this.student.name.last}}, Grade {{this.student.grade}}
                 </option>
@@ -26,29 +26,29 @@
         </select>
     </form>
     <div class="email-draft">
-        <p>To: <span class="email-name-date">teacher.email@skool.edu</span></p>
-        <p>From: <span class="email-name-date">monitor.email@skool.edu</span></p>
-        <p>Subject: <span class="email-name-date">STUDENT NAME</span> served detention on <span class="email-name-date">12/21/2019</span></p>
+        <p>To: <span id="to-address" class="teacher-email">teacher@email.com</span></p>
+        <p>From: <span id="from-address" class="monitor-email">monitorr@email.com</span></p>
+        <p>Subject: <span class="student-name">STUDENT NAME</span> served detention on <span class="date-served">12/12/2012</span></p>
         
-        <p>Hello <span class="email-name-date">TEACHER NAME</span>,</p>
+        <p>Hello <span class="teacher-name">TEACHER NAME</span>,</p>
         <p>
-            On <span class="email-name-date">12/21/2019</span>, <span class="email-name-date">STUDENT NAME</span> received 
-            a referral for <span class="email-name-date">REASON</span> OR <span class="email-name-date">REASON</span>: <span class="email-name-date">other</span>. 
-            from <span class="email-name-date">TEACHER NAME</span>.
+            On <span class="referral-date">12/01/2012</span>, <span class="student-name">STUDENT NAME</span> received 
+            a referral for <span class="referral-reason">REASON</span><span class="other-reason"></span>. 
+            from <span class="teacher-name">TEACHER NAME</span>.
         </p>
         <p>
-            On <span class="email-name-date">12/21/2019</span>, <span class="email-name-date">STUDENT NAME</span> served lunch 
-            detention with <span class="email-name-date">MONITOR NAME</span>. OR <span class="email-name-date">STUDENT NAME</span> did not serve lunch 
-            detention on <span class="email-name-date">12/21/2019</span> with <span class="email-name-date">MONITOR NAME</span> as scheduled. The status for 
-            <span class="email-name-date">Referral ###</span> is now <span class="email-name-date">STATUS</span>. 
+            On <span class="date-served">12/21/2019</span>, <span class="student-name">STUDENT NAME</span> served lunch 
+            detention with <span class="monitor-name">MONITOR NAME</span>. OR <span class="student-name">STUDENT NAME</span> did not serve lunch 
+            detention on <span class="date-served">12/21/2019</span> with <span class="monitor-name">MONITOR NAME</span> as scheduled. The status for 
+            Referral #<span class="referral-id">##</span> is now <span class="served-status">STATUS</span>. 
         </p>
         <p>
-            If you have any additional questions about <span class="email-name-date">STUDENT NAME</span>'s detention, please contact
-            <span class="email-name-date">MONITOR NAME</span> at <span class="email-name-date">monitor.email@skool.edu</span>. 
+            If you have any additional questions about <span class="student-name">STUDENT NAME</span>'s detention, please contact
+            <span class="monitor-name">MONITOR NAME</span> at <span class="monitor-email">monitor.email@skool.edu</span>. 
         </p>
         <p>
             Thank you, <br>
-                <span class="email-name-date">MONITOR NAME</span>
+                <span class="monitor-name">MONITOR NAME</span>
         </p>
     </div>
     <button class="submitAttendance btn btn-info col-1" type="submit" onclick="encodeEmail()">Send Email</button>

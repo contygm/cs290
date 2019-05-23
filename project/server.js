@@ -46,6 +46,7 @@ app.get('/attendance', function(req,res){
   res.render('attendance', context);
 });
 
+// filter endpoints
 app.get('/filter-students-by-id', function(req,res){
   res.send(referrals.all_referrals.filter(ref => ref._id == req.query.id)[0]);
 });
@@ -71,7 +72,7 @@ app.post('/attendance-update', function(req,res){
 app.get('/email', function(req,res){
   var context = {};
   context.all_monitors = monitors.all_monitors;
-  context.all_referrals = referrals.all_referrals;
+  context.served_referrals = referrals.all_referrals.filter(ref => ref.time_served.status === 'SERVED');
   res.render('email', context);
 });
 
