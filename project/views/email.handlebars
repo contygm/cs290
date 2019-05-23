@@ -6,22 +6,22 @@
     <form action="">
         <legend>Select Student:</legend>
         <label for="refer-reason">Student Name</label>
-        <select name="refer-reason">
+        <select id="studentSelect" name="refer-reason" onchange="updateStudent()">
             <option value="" disabled selected>Please select...</option>
             {{#each all_referrals}}
-                <option value="{{this.student.name.first}} {{this.student.name.last}}">
+                <option value="{{this._id}}">
                     {{this.student.name.first}} {{this.student.name.last}}, Grade {{this.student.grade}}
                 </option>
             {{/each}}
         </select>
     </form>
-    <form action="">
+    <form action="updateMonitor()">
         <legend>Select Monitor:</legend>
         <label for="refer-reason">Monitor Name</label>
-        <select name="refer-reason">
+        <select id="monitorSelect" name="refer-reason" onchange="updateMonitor()">
             <option value="" disabled selected>Please select...</option>
             {{#each all_monitors}}
-                <option value="{{this.email}}">{{this.name.first}} {{this.name.last}}</option>
+                <option value="{{this._id}}">{{this.name.first}} {{this.name.last}}</option>
             {{/each}}
         </select>
     </form>
@@ -51,5 +51,5 @@
                 <span class="email-name-date">MONITOR NAME</span>
         </p>
     </div>
-    <button class="submitAttendance btn btn-info col-1" type="submit">Send Email</button>
+    <button class="submitAttendance btn btn-info col-1" type="submit" onclick="encodeEmail()">Send Email</button>
 </div>

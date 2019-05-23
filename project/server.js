@@ -46,6 +46,14 @@ app.get('/attendance', function(req,res){
   res.render('attendance', context);
 });
 
+app.get('/filter-students-by-id', function(req,res){
+  res.send(referrals.all_referrals.filter(ref => ref._id == req.query.id)[0]);
+});
+
+app.get('/filter-monitors-by-id', function(req,res){
+  res.send(monitors.all_monitors.filter(mon => mon._id == req.query.id)[0]);
+});
+
 // for marking students present/ detention served
 app.post('/attendance-update', function(req,res){
   req.body.refIds.forEach(id => {
@@ -64,7 +72,6 @@ app.get('/email', function(req,res){
   var context = {};
   context.all_monitors = monitors.all_monitors;
   context.all_referrals = referrals.all_referrals;
-  // TODO: reduce referral info
   res.render('email', context);
 });
 
