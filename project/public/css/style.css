@@ -132,3 +132,13 @@ html, body {
     color: rgb(87, 87, 87);
     font-style: italic;
 }
+
+/* 
+==================================
+    REFERRAL SECTION 
+==================================
+*/
+
+input:focus {
+    background-color: red;
+}

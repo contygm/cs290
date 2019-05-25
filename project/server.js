@@ -3,7 +3,7 @@ var fs = require('fs');
 var monitors = require('./json/monitors');
 var referrals = require('./json/referrals');
 
-
+// TODO: log when hitting route
 var app = express();
 
 //TODO: cite
@@ -32,6 +32,11 @@ app.get('/',function(req,res){
   res.render('home');
 });
 
+/* 
+==================================
+    ATTENDANCE ENDPOINTS 
+==================================
+*/
 // gets all referals 
 // OR filters referalls based on time_served.status
 app.get('/attendance', function(req,res){
@@ -46,7 +51,25 @@ app.get('/attendance', function(req,res){
   res.render('attendance', context);
 });
 
-// filter endpoints
+// for marking students present/ detention served
+app.post('/attendance-update', function(req,res){
+  req.body.refIds.forEach(id => {
+    var idx = referrals.all_referrals.findIndex((element) => element._id == id);
+    var ref = referrals.all_referrals[idx];
+    
+    if (ref.time_served.status === "NOT_SERVED") {
+      ref.time_served.status = "SERVED";
+    } else {
+      console.error("ERROR: Status cannot be changed to SERVED for referral with id: " + id + ". Only NOT_SERVED referral can be updated to SERVED");
+    }
+  });
+});
+
+/* 
+==================================
+    FILTER ENDPOINTS 
+==================================
+*/
 app.get('/filter-students-by-id', function(req,res){
   // const ref= referrals.all_referrals.filter(ref => ref._id == req.query.id)[0];
   // body.send()
@@ -77,19 +100,11 @@ app.get('/filter-both-by-id', function(req,res){
   res.send(resObj);
 });
 
-// for marking students present/ detention served
-app.post('/attendance-update', function(req,res){
-  req.body.refIds.forEach(id => {
-    var idx = referrals.all_referrals.findIndex((element) => element._id == id);
-    var ref = referrals.all_referrals[idx];
-    
-    if (ref.time_served.status === "NOT_SERVED") {
-      ref.time_served.status = "SERVED";
-    } else {
-      console.error("ERROR: Status cannot be changed to SERVED for referral with id: " + id + ". Only NOT_SERVED referral can be updated to SERVED");
-    }
-  });
-});
+/* 
+==================================
+    EMAIL ENDPOINTS 
+==================================
+*/
 
 app.get('/email', function(req,res){
   var context = {};
@@ -98,6 +113,12 @@ app.get('/email', function(req,res){
   res.render('email', context);
 });
 
+/* 
+==================================
+    REFERRAL ENDPOINTS 
+==================================
+*/
+
 app.get('/referral', function(req,res){
   res.render('referral');
 });
@@ -105,6 +126,21 @@ app.get('/referral', function(req,res){
 app.get('/referral/submit', function(req,res){
   res.render('refer-submit');
 });
+
+app.post('/newReferral', function(req,res){  
+  // set id, then count, then add new ref
+  req.body._id = referrals.referral_count;
+  referrals.referral_count++;
+  referrals.all_referrals.push(req.body)
+
+  // res.redirect('/referral/submit');
+});
+
+/* 
+==================================
+    ERRORS 
+==================================
+*/
 
 app.use(function(req,res){
   res.status(404);
