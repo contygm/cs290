@@ -5,36 +5,52 @@
         <div class="form-group">
             <label for="stud-firstName">Student First Name</label>
             <input type="text" class="form-control" id="stud-firstName" placeholder="Taylor" required>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
             <div class="invalid-feedback">
-                Please choose a username.
+                Please include the student's first name.
             </div>
         </div>
         <div class="form-group">
             <label for="stud-lastName">Student Last Name</label>
             <input type="text" class="form-control" id="stud-lastName" placeholder="Doe">
+            <div class="invalid-feedback">
+                Please include the student's last name.
+            </div>
         </div>
         <div class="form-group">
             <label for="stud-grade">Student Grade</label>
             <input type="number" class="form-control" id="stud-grade" placeholder="7" min="5" max="12">
+            <div class="invalid-feedback">
+                Please include the student's grade.
+            </div>
         </div>
         <div class="form-group">
             <label for="teach-firstName">Teacher First Name</label>
             <input type="text" class="form-control" id="teach-firstName" placeholder="Jane">
+            <div class="invalid-feedback">
+                Please include the your first name.
+            </div>
         </div>
         <div class="form-group">
             <label for="teach-lastName">Teacher Last Name</label>
             <input type="text" class="form-control" id="teach-lastName" placeholder="Doe">
+            <div class="invalid-feedback">
+                Please include the your last name.
+            </div>
         </div>
         <div class="form-group">
             <label for="teach-email">Teacher Email</label>
             <input type="email" class="form-control" id="teach-email" placeholder="jane.doe@skool.edu">
+            <div class="invalid-feedback">
+                Please include the your email.
+            </div>
         </div>
+        {{!-- TODO: default date --}}
         <div class="form-group">
             <label for="refer-date">Date Referred</label>
             <input type="text" class="form-control" id="refer-date" placeholder="11/12/2019">
+            <div class="invalid-feedback">
+                Please include today's date
+            </div>
         </div>
         <div class="form-group">
             <label for="refer-reason">Reason Referred</label><br>
@@ -46,14 +62,23 @@
                 <option value="hw">Incomplete homework</option>
                 <option value="tardy">Tardiness</option>
             </select>
+            <div class="invalid-feedback">
+                Please select the reason for the referral
+            </div>
         </div>
         <div class="form-group" >
             <label for="refer-other">Please elaborate:</label>
             <textarea class="form-control rounded-0" id="refer-other" rows="3" placeholder="Message"></textarea>
+            <div class="invalid-feedback">
+                Please explain as needed
+            </div>
         </div>
         <div class="form-group">
             <label for="serve-date">Serve Date</label>
             <input type="date" class="form-control" id="serve-date" placeholder="11/12/2019">
+            <div class="invalid-feedback">
+                Please include the intended date of detention
+            </div>
         </div>
         
         <button class="btn btn-info my-4 btn-block" type="submit">Submit</button>
