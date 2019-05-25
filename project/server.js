@@ -68,15 +68,12 @@ app.get('/filter-students-by-id', function(req,res){
 
 app.get('/filter-both-by-id', function(req,res){
   const monitor = monitors.all_monitors.filter(mon => mon._id == req.query.monId)[0];
-  console.log(monitor)
-
   const ref = referrals.all_referrals.filter(ref => ref._id == req.query.refId)[0];
-  console.log(ref)
   const resObj = {
     monitor: monitor,
     referral: ref,
   }
-  console.log(resObj)
+  
   res.send(resObj);
 });
 

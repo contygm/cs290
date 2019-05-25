@@ -4,7 +4,7 @@
 			"_id": 0,
 			"date": "02/28/2018",
 			"reason": "HOMEWORK",
-			"other_description": "veniam pariatur consectetur est velit esse pariatur",
+			"description": "veniam pariatur consectetur est velit esse pariatur",
 			"time_served": {
 				"status": "NOT_SERVED",
 				"date": "10/11/2018"
@@ -28,7 +28,7 @@
 			"_id": 1,
 			"date": "05/16/2018",
 			"reason": "TALKING",
-			"other_description": "anim tempor nostrud labore deserunt do proident",
+			"description": "anim tempor nostrud labore deserunt do proident",
 			"time_served": {
 				"status": "NOT_SERVED",
 				"date": "01/28/2018"
@@ -52,7 +52,7 @@
 			"_id": 2,
 			"date": "01/13/2019",
 			"reason": "TALKING",
-			"other_description": "veniam in officia amet velit nulla irure",
+			"description": "veniam in officia amet velit nulla irure",
 			"time_served": {
 				"status": "NOT_SERVED",
 				"date": "03/11/2018"
@@ -76,7 +76,7 @@
 			"_id": 3,
 			"date": "01/30/2018",
 			"reason": "HOMEWORK",
-			"other_description": "deserunt ut sint enim sunt minim enim",
+			"description": "deserunt ut sint enim sunt minim enim",
 			"time_served": {
 				"status": "VOID",
 				"date": "03/29/2019"
@@ -100,7 +100,7 @@
 			"_id": 4,
 			"date": "03/22/2019",
 			"reason": "BACK_TALK",
-			"other_description": "aliquip magna velit adipisicing fugiat proident reprehenderit",
+			"description": "aliquip magna velit adipisicing fugiat proident reprehenderit",
 			"time_served": {
 				"status": "SERVED",
 				"date": "05/04/2018"
@@ -124,7 +124,7 @@
 			"_id": 5,
 			"date": "03/08/2018",
 			"reason": "BACK_TALK",
-			"other_description": "ut officia ad qui do ullamco aliquip",
+			"description": "ut officia ad qui do ullamco aliquip",
 			"time_served": {
 				"status": "SERVED",
 				"date": "01/05/2019"
@@ -148,7 +148,7 @@
 			"_id": 6,
 			"date": "09/30/2018",
 			"reason": "TALKING",
-			"other_description": "consectetur do ipsum ipsum laborum aliqua exercitation",
+			"description": "consectetur do ipsum ipsum laborum aliqua exercitation",
 			"time_served": {
 				"status": "EXCUSED",
 				"date": "02/05/2019"
@@ -172,7 +172,7 @@
 			"_id": 7,
 			"date": "01/19/2019",
 			"reason": "HOMEWORK",
-			"other_description": "proident officia irure labore magna consectetur ullamco",
+			"description": "proident officia irure labore magna consectetur ullamco",
 			"time_served": {
 				"status": "NOT_SERVED",
 				"date": "02/15/2018"
@@ -196,7 +196,7 @@
 			"_id": 8,
 			"date": "04/26/2019",
 			"reason": "PHONE",
-			"other_description": "nisi sit aliquip quis aliquip et cillum",
+			"description": "nisi sit aliquip quis aliquip et cillum",
 			"time_served": {
 				"status": "EXCUSED",
 				"date": "05/03/2019"
@@ -220,7 +220,7 @@
 			"_id": 9,
 			"date": "03/10/2018",
 			"reason": "TALKING",
-			"other_description": "Lorem tempor anim dolor ea nostrud labore",
+			"description": "Lorem tempor anim dolor ea nostrud labore",
 			"time_served": {
 				"status": "EXCUSED",
 				"date": "11/30/2018"
@@ -244,7 +244,7 @@
 			"_id": 10,
 			"date": "08/10/2018",
 			"reason": "BACK_TALK",
-			"other_description": "sunt tempor do incididunt id aute cillum",
+			"description": "sunt tempor do incididunt id aute cillum",
 			"time_served": {
 				"status": "NOT_SERVED",
 				"date": "09/17/2018"
@@ -268,7 +268,7 @@
 			"_id": 11,
 			"date": "07/10/2018",
 			"reason": "PHONE",
-			"other_description": "voluptate tempor voluptate commodo aliqua aliqua ut",
+			"description": "voluptate tempor voluptate commodo aliqua aliqua ut",
 			"time_served": {
 				"status": "SERVED",
 				"date": "05/24/2018"
@@ -292,7 +292,7 @@
 			"_id": 12,
 			"date": "11/26/2018",
 			"reason": "TALKING",
-			"other_description": "qui adipisicing qui elit dolor ad pariatur",
+			"description": "qui adipisicing qui elit dolor ad pariatur",
 			"time_served": {
 				"status": "EXCUSED",
 				"date": "05/04/2019"
@@ -315,8 +315,8 @@
 		{
 			"_id": 13,
 			"date": "11/05/2018",
-			"reason": "OTHER",
-			"other_description": "ea incididunt enim deserunt cillum tempor ea",
+			"reason": "TARDY",
+			"description": "ea incididunt enim deserunt cillum tempor ea",
 			"time_served": {
 				"status": "NOT_SERVED",
 				"date": "08/12/2018"
@@ -339,8 +339,8 @@
 		{
 			"_id": 14,
 			"date": "09/17/2018",
-			"reason": "OTHER",
-			"other_description": "ad aliquip Lorem sit elit amet magna",
+			"reason": "TARDY",
+			"description": "ad aliquip Lorem sit elit amet magna",
 			"time_served": {
 				"status": "NOT_SERVED",
 				"date": "05/16/2019"
@@ -364,7 +364,7 @@
 			"_id": 15,
 			"date": "12/18/2018",
 			"reason": "TALKING",
-			"other_description": "duis quis consectetur voluptate consequat ipsum quis",
+			"description": "duis quis consectetur voluptate consequat ipsum quis",
 			"time_served": {
 				"status": "NOT_SERVED",
 				"date": "07/04/2018"
@@ -388,7 +388,7 @@
 			"_id": 16,
 			"date": "02/16/2018",
 			"reason": "HOMEWORK",
-			"other_description": "consectetur proident elit mollit dolore esse dolore",
+			"description": "consectetur proident elit mollit dolore esse dolore",
 			"time_served": {
 				"status": "NOT_SERVED",
 				"date": "06/23/2018"
@@ -412,7 +412,7 @@
 			"_id": 17,
 			"date": "03/05/2018",
 			"reason": "HOMEWORK",
-			"other_description": "amet ipsum ea consequat laborum eiusmod cillum",
+			"description": "amet ipsum ea consequat laborum eiusmod cillum",
 			"time_served": {
 				"status": "EXCUSED",
 				"date": "06/09/2018"
@@ -436,7 +436,7 @@
 			"_id": 18,
 			"date": "04/02/2019",
 			"reason": "TARDY",
-			"other_description": "ex nulla labore officia minim adipisicing nisi",
+			"description": "ex nulla labore officia minim adipisicing nisi",
 			"time_served": {
 				"status": "VOID",
 				"date": "02/23/2019"
@@ -460,7 +460,7 @@
 			"_id": 19,
 			"date": "05/09/2019",
 			"reason": "TARDY",
-			"other_description": "qui nulla officia ad Lorem quis aute",
+			"description": "qui nulla officia ad Lorem quis aute",
 			"time_served": {
 				"status": "NOT_SERVED",
 				"date": "02/18/2018"
