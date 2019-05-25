@@ -48,11 +48,36 @@ app.get('/attendance', function(req,res){
 
 // filter endpoints
 app.get('/filter-students-by-id', function(req,res){
+  // const ref= referrals.all_referrals.filter(ref => ref._id == req.query.id)[0];
+  // body.send()
   res.send(referrals.all_referrals.filter(ref => ref._id == req.query.id)[0]);
+  // return ref;
 });
 
 app.get('/filter-monitors-by-id', function(req,res){
   res.send(monitors.all_monitors.filter(mon => mon._id == req.query.id)[0]);
+});
+
+// filter endpoints
+app.get('/filter-students-by-id', function(req,res){
+  // const ref= referrals.all_referrals.filter(ref => ref._id == req.query.id)[0];
+  // body.send()
+  res.send(referrals.all_referrals.filter(ref => ref._id == req.query.id)[0]);
+  // return ref;
+});
+
+app.get('/filter-both-by-id', function(req,res){
+  const monitor = monitors.all_monitors.filter(mon => mon._id == req.query.monId)[0];
+  console.log(monitor)
+
+  const ref = referrals.all_referrals.filter(ref => ref._id == req.query.refId)[0];
+  console.log(ref)
+  const resObj = {
+    monitor: monitor,
+    referral: ref,
+  }
+  console.log(resObj)
+  res.send(resObj);
 });
 
 // for marking students present/ detention served

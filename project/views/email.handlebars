@@ -6,7 +6,7 @@
     <form action="">
         <legend>Select Student:</legend>
         <label for="refer-reason">Student Name</label>
-        <select id="studentSelect" name="refer-reason" onchange="updateReferral()">
+        <select id="studentSelect" name="refer-reason" onchange="getReferral()">
             <option value="" disabled selected>Please select...</option>
             {{#each served_referrals}}
                 <option value="{{this._id}}">
@@ -18,7 +18,7 @@
     <form action="updateMonitor()">
         <legend>Select Monitor:</legend>
         <label for="refer-reason">Monitor Name</label>
-        <select id="monitorSelect" name="refer-reason" onchange="updateMonitor()">
+        <select id="monitorSelect" name="refer-reason" onchange="getMonitor()">
             <option value="" disabled selected>Please select...</option>
             {{#each all_monitors}}
                 <option value="{{this._id}}">{{this.name.first}} {{this.name.last}}</option>
@@ -38,8 +38,7 @@
         </p>
         <p>
             On <span class="date-served">12/21/2019</span>, <span class="student-name">STUDENT NAME</span> served lunch 
-            detention with <span class="monitor-name">MONITOR NAME</span>. OR <span class="student-name">STUDENT NAME</span> did not serve lunch 
-            detention on <span class="date-served">12/21/2019</span> with <span class="monitor-name">MONITOR NAME</span> as scheduled. The status for 
+            detention with <span class="monitor-name">MONITOR NAME</span>. The status for 
             Referral #<span class="referral-id">##</span> is now <span class="served-status">STATUS</span>. 
         </p>
         <p>
@@ -51,5 +50,5 @@
                 <span class="monitor-name">MONITOR NAME</span>
         </p>
     </div>
-    <button class="submitAttendance btn btn-info col-1" type="submit" onclick="encodeEmail()">Send Email</button>
+    <button class="submitAttendance btn btn-info col-1" type="submit" onclick="getBoth()">Send Email</button>
 </div>
