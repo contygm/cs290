@@ -4,6 +4,7 @@
     STICKY FOOTER SECTION (main)
 ==================================
 */
+
 html, body {
     height: 100%;
     margin: 0;
@@ -26,13 +27,20 @@ html, body {
     HOME SECTION 
 ==================================
 */
-.carousel {
-    float: left;
-    padding: 10px;
-}
 
 .home-info {
     float: right;
+}
+
+.carousel-container {
+    float: left;
+    padding: 10px;
+    position: relative;
+    max-width: 50%;
+}
+
+.slide {
+    width: 100%;
 }
 
 /* 

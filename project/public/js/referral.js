@@ -32,12 +32,9 @@ function refSubmit() {
     var http = new XMLHttpRequest();
     http.open('POST', `/newReferral`, true);
     http.setRequestHeader('Content-Type', 'application/json');
-    // http.onreadystatechange = function() {
-    //     if (http.readyState === 4) {
-    //         const res = JSON.parse(http.response);
-    //         buildTemplate(res.referral, res.monitor);
-    //         return ; 
-    //     }
-    // }
+    http.addEventListener('load', function(){
+        const res = JSON.parse(http.response);
+        window.location = res.redirectUrl;
+    });
     http.send(JSON.stringify(newReferral));
 }

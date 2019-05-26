@@ -133,6 +133,8 @@ app.post('/newReferral', function(req,res){
   referrals.referral_count++;
   referrals.all_referrals.push(req.body)
 
+  // res.redirect("/");
+  res.send({redirectUrl: "/referral/submit"});
   // res.redirect('/referral/submit');
 });
 
