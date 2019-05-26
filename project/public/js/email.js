@@ -88,4 +88,6 @@ ${monitorName}
     encodeURIComponent(body);
     // open email in default email app
     window.location.href = `mailto:${teacherEmail}?subject=${subject}&body=${encodeURIComponent(body)}`;
+
+    return body;
 }

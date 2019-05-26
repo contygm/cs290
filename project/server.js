@@ -1,5 +1,4 @@
 var express = require('express');
-var fs = require('fs');
 var monitors = require('./json/monitors');
 var referrals = require('./json/referrals');
 
