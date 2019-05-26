@@ -1,4 +1,12 @@
+/* color scheme: https://www.canva.com/colors/color-palettes/on-a-roll/
 
+green: #40BF7E
+black: #022126
+purple: #A16AE8
+yellowgreen: #D6E354
+
+
+*/
 /* 
 ==================================
     STICKY FOOTER SECTION (main)
@@ -13,14 +21,36 @@ html, body {
 }
 
 .container {
-    min-height: 80%;
+    min-height: 100%;
     min-width: 90%;
+    padding-top: 70px;
 }
 
 .footer-content {
-    background-color: aquamarine;
-    height: 130px;
+    background-color: #40BF7E;
+    height: 80px;
     padding: 5px;
+    color: white;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+.navbar {
+    background-color: #40BF7E;
+    color:#A16AE8;
+    box-shadow: 0 0 5px rgba(0,0,0,0.25);
+}
+
+.navbar a, .footer-content a{
+    color: white;
+}
+
+.navbar a:hover, .navbar a:focus, .footer-content a:hover, .footer-content:focus a{
+    /* background-color: #A16AE8; */
+    color: #A16AE8;
 }
 
 /* 
@@ -54,8 +84,8 @@ html, body {
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-    background-color: lightgray;
-    opacity: .3;
+    background-color: #A16AE8;
+    opacity: .2;
 }
 
 /* Position the "next button" to the right */
@@ -66,7 +96,7 @@ html, body {
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-    background-color: white;
+    background-color:#40BF7E;
     opacity: 1;
 }
 
