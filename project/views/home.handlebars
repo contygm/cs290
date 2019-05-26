@@ -2,27 +2,25 @@
     <div class="row">
         {{!-- Carousel --}}
         {{!-- TODO: cite https://www.w3schools.com/howto/howto_js_slideshow.asp--}}
-        <div id="carousel-container" class="">
-            <div class="slide" id="slide-1">
-                <img src="/public/img/tyrion.jpeg" alt="">
-                <div class="car-caption">Some words</div>
+        <div id="carousel-container" class="col-md-6">
+            <div class="slide active" id="slide-0" index="0">
+                <img src="/img/tyrion.jpeg" alt="tyrion0" class="imgSlide">
             </div>
-            <div class="slide" id="slide-2">
-                <img src="/public/img/tyrion.jpeg" alt="">
-                <div class="car-caption">Some more words</div>
+            <div class="slide" id="slide-1" index="1">
+                <img src="/img/tyrion.jpeg" alt="tyrion1" class="imgSlide">
             </div>
-            <div class="slide" id="slide-3">
-                <img src="/public/img/tyrion.jpeg" alt="">
-                <div class="car-caption">Some more more words</div>
+            <div class="slide" id="slide-2" index="2">
+                <img src="/img/tyrion.jpeg" alt="tyrion2" class="imgSlide">
             </div>
-            <a class="prev" onclick="prevSlide()">&#10094;</a>
-            <a class="next" onclick="nextSlide()">&#10095;</a>
-        </div>
-        {{!-- Carousel dots --}}
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span> 
-            <span class="dot" onclick="currentSlide(2)"></span> 
-            <span class="dot" onclick="currentSlide(3)"></span> 
+            <a class="prev" onclick="nextSlide(0)">&#10094;</a>
+            <a class="next" onclick="nextSlide(1)">&#10095;</a>
+
+            {{!-- Carousel dots --}}
+            <div style="text-align:center">
+                <span class="dot active" onclick="currentSlide(0)"></span> 
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+            </div>
         </div>
         <div class="home-info col-md-6">
             <p>

@@ -2,9 +2,9 @@
   "name": "detention-tracker",
   "version": "1.0.0",
   "description": "proof of concept: detention-tracker application for teachers",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "app": "node index.js"
   },
   "author": "OSU",
   "license": "ISC",
