@@ -53,6 +53,10 @@ app.get('/attendance', function(req,res){
 
 // for marking students present/ detention served
 app.post('/attendance-update', function(req,res){
+  if(req.body.refIds.length < 1) {
+    res.status(204);
+    res.end();
+  }
   req.body.refIds.forEach(id => {
     var idx = referrals.all_referrals.findIndex((element) => element._id == id);
     var ref = referrals.all_referrals[idx];
@@ -63,6 +67,8 @@ app.post('/attendance-update', function(req,res){
       console.error("ERROR: Status cannot be changed to SERVED for referral with id: " + id + ". Only NOT_SERVED referral can be updated to SERVED");
     }
   });
+  res.status(200);
+  res.end();
 });
 
 /* 

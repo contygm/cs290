@@ -1,12 +1,16 @@
-<div class="content">
-    <div class="attendanceHeaderRow row justify-content-between">
-        <h1 class="attendanceHeader col-md-6">ATTENDANCE</h1>
-        <a href="/attendance?status=NOT_SERVED" role="button" class="btn btn-warning">Not Served</a>
-        <a href="/attendance?status=VOID" role="button" class="btn btn-secondary">Void</a>
-        <a href="/attendance?status=EXCUSED" role="button" class="btn btn-info">Excused</a>
-        <a href="/attendance?status=SERVED" role="button" class="btn btn-success">Served</a>
-
-        <button class="submitAttendance btn btn-primary" type="submit" onclick="markPresent()">Submit</button>
+<div class="container">
+    <div class="attendanceHeaderRow">
+        <div>
+            <h1 class="attendanceHeader">Take Attendance</h1>
+        </div>
+        <div >
+            <label for="">Filter by status: </label>
+            <a href="/attendance?status=NOT_SERVED" role="button" class="btn btn-warning">Not Served</a>
+            <a href="/attendance?status=VOID" role="button" class="btn btn-secondary">Void</a>
+            <a href="/attendance?status=EXCUSED" role="button" class="btn btn-info">Excused</a>
+            <a href="/attendance?status=SERVED" role="button" class="btn btn-success">Served</a>
+            <button class="submitAttendance btn btn-primary" type="submit" onclick="markPresent()">Submit Attendance</button>
+        </div>
     </div>
     
     <div class="student-table-wrapper">
@@ -42,7 +46,7 @@
             </thead>
             <tbody>
                 {{#each all_referrals}}
-                    <tr class="ref-{{this.time_served.status}}">
+                    <tr class="align-middle ref-{{this.time_served.status}}">
                         <th scope="row">{{inc @index}}</th>
                         <td class="stud-present"><input type="checkbox" name="stud-present" id="{{this._id}}"></td>
                         <td class="stud-first left-border">{{this.student.name.first}}</td>
