@@ -23,7 +23,7 @@ html, body {
 .container {
     min-height: 100%;
     min-width: 90%;
-    padding-top: 30px;
+    margin-top: 60px;
 }
 
 .footer-content {
@@ -40,7 +40,8 @@ html, body {
 }
 
 .footer-content a{
-    color: #828081;
+    color: #A16AE8;
+    margin: 5px 10px;
 }
 
 
