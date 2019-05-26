@@ -14,6 +14,7 @@ html, body {
 
 .container {
     min-height: 80%;
+    min-width: 90%;
 }
 
 .footer-content {
@@ -27,11 +28,6 @@ html, body {
     HOME SECTION 
 ==================================
 */
-
-.home-info {
-    float: right;
-    margin: 25px 25px;
-}
 
 /*  TODO: cite https://www.w3schools.com/howto/howto_js_slideshow.asp */
 .carousel-container {
@@ -58,15 +54,15 @@ html, body {
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
+    background-color: lightgray;
+    opacity: .3;
 }
 
 /* Position the "next button" to the right */
 .next {
     right: 0;
-    border-radius: 3px 0 0 3px;
-    background-color: lightgray;
-    opacity: .3;
 }
+
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
