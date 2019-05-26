@@ -7,13 +7,13 @@
 
 html, body {
     height: 100%;
+    /* max-width: 100%; */
+    overflow-x: hidden;
     margin: 0;
 }
 
-.content {
-    min-height: 100%;
-    margin: 10px;
-    max-width: 100%;
+.container {
+    min-height: 80%;
 }
 
 .footer-content {
@@ -30,6 +30,7 @@ html, body {
 
 .home-info {
     float: right;
+    margin: 25px 25px;
 }
 
 /*  TODO: cite https://www.w3schools.com/howto/howto_js_slideshow.asp */
@@ -100,13 +101,14 @@ html, body {
 }
 
 .slide.active {
-    background-color: #717171;
+    /* background-color: #717171; */
     display: block;
 }
 
 .imgSlide {
-    width: 100%;
-    max-height: 75%;
+    width: 90%;
+    padding-left: 10%;
+    max-height: 50vh;
 }
 
 /* 
