@@ -27,8 +27,6 @@ function refSubmit() {
         }
     }
 
-    console.log("newReferral", newReferral)
-
     var http = new XMLHttpRequest();
     http.open('POST', `/newReferral`, true);
     http.setRequestHeader('Content-Type', 'application/json');

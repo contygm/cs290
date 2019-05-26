@@ -1,18 +1,15 @@
+// Citation: Modified and Adapted carousel https://www.w3schools.com/howto/howto_js_slideshow.asp-
 function nextSlide(num) {
-    console.log("next slide", num);
     
     let activeIndex = $(".slide.active").attr("index");
     activeIndex = parseInt(activeIndex);
-    console.log("next slide activeIndex", activeIndex, typeof activeIndex)
 
     if(num) {
         activeIndex++;
-        console.log("true", activeIndex, typeof activeIndex);
         activateSlide(activeIndex);
         return;
     }
     activeIndex--;
-    console.log("false", activeIndex, typeof activeIndex)
     activateSlide(activeIndex);
 }
 
@@ -22,8 +19,6 @@ function currentSlide(index) {
 }
 
 function activateSlide(index) {
-    console.log("activateSlide", index);
-
     const slides = $(".slide");
     const dots = $(".dot");
 
@@ -35,8 +30,6 @@ function activateSlide(index) {
     if (index < 0) {
         index = 2;
     }
-
-    console.log("bounds activateSlide", index);
 
     // set non-active slides/dots
     for (i = 0; i < 3; i++) {

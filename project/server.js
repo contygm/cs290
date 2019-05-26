@@ -3,11 +3,10 @@ var fs = require('fs');
 var monitors = require('./json/monitors');
 var referrals = require('./json/referrals');
 
-// TODO: log when hitting route
 var app = express();
 
-//TODO: cite
-//https://stackoverflow.com/questions/32707322/how-to-make-a-handlebars-helper-global-in-expressjs
+// Citation: Pulled customer helper from here
+// https://stackoverflow.com/questions/32707322/how-to-make-a-handlebars-helper-global-in-expressjs
 var handlebars = require('express-handlebars').create({
   defaultLayout:'main',
   helpers: { // adding helper
