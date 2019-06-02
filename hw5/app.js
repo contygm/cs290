@@ -26,25 +26,33 @@ app.set('port', 4000);
 
 
 app.get('/',function(req,res,next){
+  console.log("GET home")
+
   var context = {};
   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
+      console.log("error 1")
       next(err);
       return;
     }
+    console.log("YO BISH")
     context.results = JSON.stringify(rows);
     res.render('home', context);
   });
 });
 
-app.post('/',function(req,res,next){
-  mysql.pool.query("INSERT INTO workouts (`name`) VALUES (?)", [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.unit], function(err, result){
+app.post('/insert',function(req,res,next){
+  console.log("POST insert", req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs)
+  mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)", 
+  [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs], function(err, result){
     if(err){
+      console.log("error 2")
       next(err);
       return;
     }
-    res.redirect('/');
+    res.redirect("/");
   });
+  
 });
 
 app.post('/delete',function(req,res,next){
@@ -60,7 +68,7 @@ app.post('/delete',function(req,res,next){
 ///safe-update?id=1&name=The+Task&done=false
 app.get('/update',function(req,res,next){
   var context = {};
-  mysql.pool.query("SELECT * FROM todo WHERE id=?", [req.query.id], function(err, result){
+  mysql.pool.query("SELECT * FROM workouts WHERE id=?", [req.query.id], function(err, result){
     if(err){
       next(err);
       return;
