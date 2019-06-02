@@ -53,10 +53,10 @@ app.get('/',function(req,res,next){
   });
 });
 
-app.post('/insert',function(req,res,next){
-  console.log("POST insert", req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs)
+app.get('/insert',function(req,res,next){
+  console.log("POST insert", req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs)
   mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)", 
-  [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs], function(err, result){
+  [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
     if(err){
       console.log("error 2")
       next(err);
@@ -67,13 +67,14 @@ app.post('/insert',function(req,res,next){
   
 });
 
-app.post('/delete',function(req,res,next){
+app.get('/delete',function(req,res,next){
+  console.log("delete", req.query)
   mysql.pool.query("DELETE FROM workouts WHERE id=?", [req.query.id], function(err, result){
     if(err){
       next(err);
       return;
     }
-    res.redirect('/');
+    res.send({redirectUrl: "/"});
   });
 });
 
