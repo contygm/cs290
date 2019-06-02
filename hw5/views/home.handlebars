@@ -1,0 +1,58 @@
+<div>
+    <form method="" class="">
+        <legend>Exercise Information:</legend>
+        <div class="row">
+            <div class="form-group col-md-5">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="FirstName" placeholder="Taylor" required>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="stud-grade">Weight Used</label>
+                <input type="number" class="form-control" id="weight" placeholder="15" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="refer-date">Date</label>
+                <input type="date" class="form-control" id="refer-date" placeholder="11/12/2019" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="refer-reason">Unit</label><br>
+                <select id="refer-reason" name="refer-reason" class="custom-select" required>
+                    <option value="" disabled selected>Please select...</option>
+                    <option value="LBS">lbs</option>
+                    <option value="KG">kb</option>
+                </select>
+            </div>
+        </div>
+        
+        <button class="btn btn-info my-4 btn-block" id="submit" type="submit" onclick="">Submit</buttom>
+    </form>
+</div>
+<hr>
+<div>
+    <table class="table">
+        <thead>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Weight Used</th>
+            <th>Date</th>
+            <th>Unit</th>
+        </thead>
+        <tbody>
+            {{#each results}}
+                <tr class="align-middle ref-{{this.id}}">
+                    <th scope="row">{{inc @index}}</th>
+                    <td class="stud-first">{{this.first}}</td>
+                    <td class="stud-last">{{this.last}}</td>
+                    <td class="stud-grade">{{this.weight}}</td>
+                    <td class="teach-first">{{this.date}}</td>
+                    <td class="teach-last">{{this.unit}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
