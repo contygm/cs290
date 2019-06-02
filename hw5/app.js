@@ -39,7 +39,7 @@ app.get('/',function(req,res,next){
         'name': rows[row].name, 
         'reps': rows[row].reps, 
         'weight': rows[row].weight, 
-        'date':rows[row].date, 
+        'date':rows[row].date.toISOString().slice(0, 10), 
         'lbs': rows[row].lbs ? true : false, 
       };
 
@@ -72,8 +72,9 @@ app.get('/delete',function(req,res,next){
   });
 });
 
-app.get('/update',function(req,res,next){
-  console.log("update", req.query)
+app.get('/edit',function(req,res,next){
+  console.log("edit", req.query.id)
+
   var context = {};
   mysql.pool.query("SELECT * FROM workouts WHERE id=?", [req.query.id], function(err, rows, fields){
     if(err){
@@ -90,15 +91,14 @@ app.get('/update',function(req,res,next){
         'lbs': rows[0].lbs ? true : false, 
     };
 
-    console.log("update result", context.result)
-
+    console.log("edit", context.result)
     res.render('update', context.result)
   });
 });
 
 
-app.post('/update',function(req,res,next){
-  if(result.length == 1){
+app.get('/update',function(req,res,next){
+  console.log("update", req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs, req.query.id)
     mysql.pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
       [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs, req.query.id],
       function(err, result){
@@ -108,7 +108,6 @@ app.post('/update',function(req,res,next){
       }
       res.redirect('/');
     });
-  }
 });
 
 

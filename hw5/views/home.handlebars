@@ -37,6 +37,7 @@
             <th>Weight Used</th>
             <th>Reps</th>
             <th>Unit</th>
+            <th>Actions</th>
         </thead>
         <tbody>
             {{#each results}}
@@ -54,7 +55,7 @@
                     </td>
                     <td>
                         <button class="btn btn-danger" onclick="deleteRow({{this.id}})">Delete</button>
-                        <a class="btn btn-info" href="/update?id={{this.id}}">Edit</a>
+                        <a class="btn btn-info" href="/edit?id={{this.id}}">Edit</a>
                     </td>
                 </tr>
             {{/each}}
