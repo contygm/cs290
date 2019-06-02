@@ -3,24 +3,24 @@
     <div class="row">
         <div class="form-group col-md-6">
             <label for="lastName">Name</label>
-            <input type="text" class="form-control" id="name" value="{{result.name}}" required>
+            <input type="text" class="form-control" id="name" value="{{name}}" required>
         </div>
         <div class="form-group col-md-6">
-            <label for="refer-date">Date</label>
-            <input type="date" class="form-control" id="refer-date" value="{{result.date}}" required>
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date" value="{{date}}" required>
         </div>
         <div class="form-group col-md-6">
             <label for="stud-grade">Weight Used</label>
-            <input type="number" class="form-control" id="weight" value="{{result.weight}}" required>
+            <input type="number" class="form-control" id="weight" value="{{weight}}" required>
         </div>
         <div class="form-group col-md-3">
             <label for="reps">Reps</label>
-            <input type="number" class="form-control" id="weight" value="{{result.reps}}" required>
+            <input type="number" class="form-control" id="weight" value="{{reps}}" required>
         </div>
         <div class="form-group col-md-3">
             <label for="unit">Unit</label><br>
-            <label for="lbs">lbs <input type="radio" name="unit" value="true" {{#if result.lbs}} checked {{/if}}></label>
-            <label for="kg">kg <input type="radio" name="unit" value="false" {{#unless result.lbs}} checked {{/unless}}></label>
+            <label for="lbs">lbs <input type="radio" name="unit" value="true" {{#if lbs}} checked {{/if}}></label>
+            <label for="kg">kg <input type="radio" name="unit" value="false" {{#unless lbs}} checked {{/unless}}></label>
         </div>
     </div>
     

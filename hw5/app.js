@@ -26,12 +26,9 @@ app.set('port', 4000);
 
 
 app.get('/',function(req,res,next){
-  console.log("GET home")
-
   var context = {};
   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
-      console.log("error 1")
       next(err);
       return;
     }
@@ -54,11 +51,9 @@ app.get('/',function(req,res,next){
 });
 
 app.get('/insert',function(req,res,next){
-  console.log("POST insert", req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs)
   mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)", 
   [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
     if(err){
-      console.log("error 2")
       next(err);
       return;
     }
@@ -68,7 +63,6 @@ app.get('/insert',function(req,res,next){
 });
 
 app.get('/delete',function(req,res,next){
-  console.log("delete", req.query)
   mysql.pool.query("DELETE FROM workouts WHERE id=?", [req.query.id], function(err, result){
     if(err){
       next(err);
@@ -78,16 +72,27 @@ app.get('/delete',function(req,res,next){
   });
 });
 
-///safe-update?id=1&name=The+Task&done=false
 app.get('/update',function(req,res,next){
+  console.log("update", req.query)
   var context = {};
-  mysql.pool.query("SELECT * FROM workouts WHERE id=?", [req.query.id], function(err, result){
+  mysql.pool.query("SELECT * FROM workouts WHERE id=?", [req.query.id], function(err, rows, fields){
     if(err){
       next(err);
       return;
     }
-    constext.result = result;
-    res.render('update', context)
+
+    context.result = {
+        'id': rows[0].id,
+        'name': rows[0].name, 
+        'reps': rows[0].reps, 
+        'weight': rows[0].weight, 
+        'date':rows[0].date, 
+        'lbs': rows[0].lbs ? true : false, 
+    };
+
+    console.log("update result", context.result)
+
+    res.render('update', context.result)
   });
 });
 
@@ -108,7 +113,6 @@ app.post('/update',function(req,res,next){
 
 
 app.get('/reset-table',function(req,res,next){
-  var context = {};
   mysql.pool.query("DROP TABLE IF EXISTS workouts", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "CREATE TABLE workouts("+
     "id INT PRIMARY KEY AUTO_INCREMENT,"+
