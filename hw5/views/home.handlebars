@@ -14,10 +14,14 @@
                 <label for="stud-grade">Weight Used</label>
                 <input type="number" class="form-control" id="weight" placeholder="15" required>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
+                <label for="reps">Reps</label>
+                <input type="number" class="form-control" id="weight" placeholder="35" required>
+            </div>
+            <div class="form-group col-md-3">
                 <label for="unit">Unit</label><br>
-                <label for="lbs">lbs <input type="radio" name="unit" value="lbs"></label>
-                <label for="kg">kg <input type="radio" name="unit" value="kg"></label>
+                <label for="lbs">lbs <input type="radio" name="unit" value="true"></label>
+                <label for="kg">kg <input type="radio" name="unit" value="false"></label>
             </div>
         </div>
         
@@ -30,6 +34,7 @@
         <thead>
             <th>#</th>
             <th>Name</th>
+            <th>Date</th>
             <th>Weight Used</th>
             <th>Date</th>
             <th>Unit</th>
@@ -38,10 +43,17 @@
             {{#each results}}
                 <tr class="align-middle ref-{{this.id}}">
                     <th scope="row">{{inc @index}}</th>
-                    <td class="stud-last">{{this.name}}</td>
-                    <td class="stud-grade">{{this.weight}}</td>
-                    <td class="teach-first">{{this.date}}</td>
-                    <td class="teach-last">{{this.unit}}</td>
+                    <td class="name">{{this.name}}</td>
+                    <td class="date">{{this.date}}</td>
+                    <td class="weight">{{this.weight}}</td>
+                    <td class="reps">{{this.weight}}</td>
+                    <td class="unit">
+                        {{#if this.unit}}
+                            lbs
+                        {{else}}
+                            kg
+                        {{/if}}
+                    </td>
                 </tr>
             {{/each}}
         </tbody>
