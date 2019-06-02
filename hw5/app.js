@@ -86,7 +86,7 @@ app.get('/update',function(req,res,next){
         'name': rows[0].name, 
         'reps': rows[0].reps, 
         'weight': rows[0].weight, 
-        'date':rows[0].date, 
+        'date':rows[0].date.toISOString().slice(0, 10), 
         'lbs': rows[0].lbs ? true : false, 
     };
 

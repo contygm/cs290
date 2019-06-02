@@ -16,6 +16,7 @@ function goEdit(id) {
 
     http.addEventListener('load', function(){
         const res = JSON.parse(http.response);
+        console.log("res", res)
         console.log("res.redirectUrl", res.redirectUrl)
         window.location = res.redirectUrl;
     });
