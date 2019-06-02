@@ -20,8 +20,8 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="unit">Unit</label><br>
-                <label for="lbs">lbs <input type="radio" name="lbs" value="true"></label>
-                <label for="kg">kg <input type="radio" name="lbs" value="false"></label>
+                <label for="lbs">lbs <input type="radio" name="lbs" value="1"></label>
+                <label for="kg">kg <input type="radio" name="lbs" value="0"></label>
             </div>
         </div>
         
@@ -32,11 +32,10 @@
 <div>
     <table class="table">
         <thead>
-            <th>#</th>
             <th>Name</th>
             <th>Date</th>
             <th>Weight Used</th>
-            <th>Date</th>
+            <th>Reps</th>
             <th>Unit</th>
         </thead>
         <tbody>
@@ -45,7 +44,7 @@
                     <td class="name">{{this.name}}</td>
                     <td class="date">{{this.date}}</td>
                     <td class="weight">{{this.weight}}</td>
-                    <td class="reps">{{this.weight}}</td>
+                    <td class="reps">{{this.reps}}</td>
                     <td class="unit">
                         {{#if this.lbs}}
                             lbs

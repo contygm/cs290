@@ -35,8 +35,20 @@ app.get('/',function(req,res,next){
       next(err);
       return;
     }
-    console.log("YO BISH")
-    context.results = JSON.stringify(rows);
+    context.results = [];
+    for (row in rows) {
+      let entry = {
+        'id': rows[row].id,
+        'name': rows[row].name, 
+        'reps': rows[row].reps, 
+        'weight': rows[row].weight, 
+        'date':rows[row].date, 
+        'lbs': rows[row].lbs ? true : false, 
+      };
+
+      context.results.push(entry);
+    }
+    console.log("YO BISH", context.results)
     res.render('home', context);
   });
 });
@@ -105,8 +117,7 @@ app.get('/reset-table',function(req,res,next){
     "date DATE,"+
     "lbs BOOLEAN)";
     mysql.pool.query(createString, function(err){
-      context.results = "Table reset";
-      res.render('home',context);
+      res.redirect('/');
     })
   });
 });
