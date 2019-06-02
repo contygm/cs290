@@ -2,15 +2,32 @@ var express = require('express');
 var mysql = require('./dbcon.js');
 
 var app = express();
-var handlebars = require('express-handlebars').create({defaultLayout:'main'});
+
+// Citation: Pulled customer helper from here
+// https://stackoverflow.com/questions/32707322/how-to-make-a-handlebars-helper-global-in-expressjs
+var handlebars = require('express-handlebars').create({
+  defaultLayout:'main',
+  helpers: { // adding helper
+    inc: function(value, options) {
+      return parseInt(value) + 1;
+    }
+  }
+});
+
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 3000);
+app.set('port', 4000);
+
 
 app.get('/',function(req,res,next){
   var context = {};
-  mysql.pool.query('SELECT * FROM todo', function(err, rows, fields){
+  mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
       return;
@@ -22,7 +39,7 @@ app.get('/',function(req,res,next){
 
 app.get('/insert',function(req,res,next){
   var context = {};
-  mysql.pool.query("INSERT INTO todo (`name`) VALUES (?)", [req.query.c], function(err, result){
+  mysql.pool.query("INSERT INTO workouts (`name`) VALUES (?)", [req.query.c], function(err, result){
     if(err){
       next(err);
       return;
@@ -34,7 +51,7 @@ app.get('/insert',function(req,res,next){
 
 app.get('/delete',function(req,res,next){
   var context = {};
-  mysql.pool.query("DELETE FROM todo WHERE id=?", [req.query.id], function(err, result){
+  mysql.pool.query("DELETE FROM workoutsWHERE id=?", [req.query.id], function(err, result){
     if(err){
       next(err);
       return;
@@ -48,7 +65,7 @@ app.get('/delete',function(req,res,next){
 ///simple-update?id=2&name=The+Task&done=false&due=2015-12-5
 app.get('/simple-update',function(req,res,next){
   var context = {};
-  mysql.pool.query("UPDATE todo SET name=?, done=?, due=? WHERE id=? ",
+  mysql.pool.query("UPDATE workouts SET name=?, done=?, due=? WHERE id=? ",
     [req.query.name, req.query.done, req.query.due, req.query.id],
     function(err, result){
     if(err){
