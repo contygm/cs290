@@ -45,7 +45,6 @@ app.get('/',function(req,res,next){
 
       context.results.push(entry);
     }
-    console.log("GET BISH", context.results)
     res.render('home', context);
   });
 });
@@ -53,10 +52,9 @@ app.get('/',function(req,res,next){
 app.post('/',function(req,res,next){
   var context = {};
   context.results = [];
-  console.log("POST", req.body)
+
   // insert
   if(!req.body.id) {
-    console.log("QUERY", req.query)
     mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)", 
     [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
       if(err){
@@ -65,10 +63,8 @@ app.post('/',function(req,res,next){
       }
     });
   }
-  // TODO: update
-  else if (req.body.name && req.body.id) {
-    console.log("update", req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs, req.body.id)
-    
+  // update
+  else if (req.body.name && req.body.id) {    
     mysql.pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
       [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs, req.body.id],
       function(err, result){
@@ -78,10 +74,9 @@ app.post('/',function(req,res,next){
       }
     });
   }
-  // TODO: delete
+  // delete
   else {
-    console.log("DELETE BISH")
-
+    console.log("DELETE")
     mysql.pool.query("DELETE FROM workouts WHERE id=?", [req.body.id], function(err, result){
       if(err){
         next(err);
@@ -90,9 +85,7 @@ app.post('/',function(req,res,next){
     });
   }
 
-
-
-  // build context and render page
+  // go back to get route
   res.send({redirectUrl: "/"});
 });
 

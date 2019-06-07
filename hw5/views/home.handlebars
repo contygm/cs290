@@ -45,23 +45,23 @@
                     <form method="POST" action="/">
                         <input type="text" class="form-control" style="display: none;" name="id" value="{{id}}" required>
                         <td class="name">
-                            <input type="text" class="form-control" name="name" value="{{this.name}}" required>
+                            <input type="text" id="{{this.id}}-name" class="form-control" name="name" value="{{this.name}}" required>
                         </td>
                         <td class="date">
-                            <input type="date" class="form-control" name="date" value="{{this.date}}" required>
+                            <input type="date" id="{{this.id}}-date" class="form-control" name="date" value="{{this.date}}" required>
                         </td>
                         <td class="weight">
-                            <input type="number" class="form-control" name="weight" value="{{this.weight}}" required>
+                            <input type="number" id="{{this.id}}-weight" class="form-control" name="weight" value="{{this.weight}}" required>
                         </td>
                         <td class="reps">
-                            <input type="number" class="form-control" name="reps" value="{{this.reps}}" required>
+                            <input type="number" id="{{this.id}}-reps" class="form-control" name="reps" value="{{this.reps}}" required>
                         </td>
-                        <td class="unit">
-                            <label for="lbs">lbs <input type="radio" name="lbs" value="true" {{#if this.lbs}} checked {{/if}}></label>
-                            <label for="kg">kg <input type="radio" name="lbs" value="false" {{#unless this.lbs}} checked {{/unless}}></label>
+                        <td class="unit" id="{{this.id}}-unit">
+                            <label for="lbs">lbs <input type="radio" id="{{this.id}}-lbs" name="lbs" value="true" {{#if this.lbs}} checked {{/if}}></label>
+                            <label for="kg">kg <input type="radio" id="{{this.id}}-kg" name="lbs" value="false" {{#unless this.lbs}} checked {{/unless}}></label>
                         </td>
                         <td>
-                            <span class="btn btn-info" onclick="updateRow({{this.id}}, {{this.name}}, {{this.date}}, {{this.weight}}, {{this.reps}}, {{this.lbs}})">Edit</span>
+                            <span class="btn btn-info" onclick="updateRow({{this.id}})">Edit</span>
                             <span class="btn btn-danger" onclick="deleteRow({{this.id}})">Delete</span>
                         </td>
                     </form>
