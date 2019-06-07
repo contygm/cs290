@@ -1,5 +1,5 @@
 <div>
-    <form method="POST" action="/">
+    <form id="insert-form" method="POST" action="/">
         <legend>Exercise Information:</legend>
         <div class="row">
             <div class="form-group col-md-6">
@@ -25,7 +25,7 @@
             </div>
         </div>
         
-        <button class="btn btn-info my-4 btn-block" id="submit" type="submit">Submit</buttom>
+        <span class="btn btn-info my-4 btn-block" onclick="insertRow()">Submit</span>
     </form>
 </div>
 <hr>
@@ -57,12 +57,12 @@
                             <input type="number" class="form-control" name="reps" value="{{this.reps}}" required>
                         </td>
                         <td class="unit">
-                            <label for="lbs">lbs <input type="radio" name="lbs" value="true" {{#if lbs}} checked {{/if}}></label>
-                            <label for="kg">kg <input type="radio" name="lbs" value="false" {{#unless lbs}} checked {{/unless}}></label>
+                            <label for="lbs">lbs <input type="radio" name="lbs" value="true" {{#if this.lbs}} checked {{/if}}></label>
+                            <label for="kg">kg <input type="radio" name="lbs" value="false" {{#unless this.lbs}} checked {{/unless}}></label>
                         </td>
                         <td>
-                            <button type="submit" class="btn btn-info">Edit</button>
-                            <button class="btn btn-danger" onclick="deleteRow({{this.id}})">Delete</button>
+                            <span class="btn btn-info" onclick="updateRow({{this.id}}, {{this.name}}, {{this.date}}, {{this.weight}}, {{this.reps}}, {{this.lbs}})">Edit</span>
+                            <span class="btn btn-danger" onclick="deleteRow({{this.id}})">Delete</span>
                         </td>
                     </form>
                 </tr>

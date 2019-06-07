@@ -45,7 +45,7 @@ app.get('/',function(req,res,next){
 
       context.results.push(entry);
     }
-    console.log("YO BISH", context.results)
+    console.log("GET BISH", context.results)
     res.render('home', context);
   });
 });
@@ -53,11 +53,12 @@ app.get('/',function(req,res,next){
 app.post('/',function(req,res,next){
   var context = {};
   context.results = [];
-  console.log(req.body)
+  console.log("POST", req.body)
   // insert
   if(!req.body.id) {
+    console.log("QUERY", req.query)
     mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)", 
-    [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs], function(err, result){
+    [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
       if(err){
         next(err);
         return;
@@ -92,7 +93,7 @@ app.post('/',function(req,res,next){
 
 
   // build context and render page
-  res.redirect('/');
+  res.send({redirectUrl: "/"});
 });
 
 
