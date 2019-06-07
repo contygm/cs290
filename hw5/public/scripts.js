@@ -1,6 +1,6 @@
 function deleteRow(id) {
     var http = new XMLHttpRequest();
-    http.open('GET', `/delete?id=${id}`, true);
+    http.open('POST', `/?id=${id}`, true);
 
     http.addEventListener('load', function(){
         const res = JSON.parse(http.response);

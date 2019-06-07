@@ -1,5 +1,5 @@
 <div>
-    <form method="get" action="/insert" class="">
+    <form method="POST" action="/">
         <legend>Exercise Information:</legend>
         <div class="row">
             <div class="form-group col-md-6">
@@ -42,21 +42,29 @@
         <tbody>
             {{#each results}}
                 <tr class="align-middle ref-{{this.id}}">
-                    <td class="name">{{this.name}}</td>
-                    <td class="date">{{this.date}}</td>
-                    <td class="weight">{{this.weight}}</td>
-                    <td class="reps">{{this.reps}}</td>
-                    <td class="unit">
-                        {{#if this.lbs}}
-                            lbs
-                        {{else}}
-                            kg
-                        {{/if}}
-                    </td>
-                    <td>
-                        <button class="btn btn-danger" onclick="deleteRow({{this.id}})">Delete</button>
-                        <a class="btn btn-info" href="/edit?id={{this.id}}">Edit</a>
-                    </td>
+                    <form method="POST" action="/">
+                        <input type="text" class="form-control" style="display: none;" name="id" value="{{id}}" required>
+                        <td class="name">
+                            <input type="text" class="form-control" name="name" value="{{this.name}}" required>
+                        </td>
+                        <td class="date">
+                            <input type="date" class="form-control" name="date" value="{{this.date}}" required>
+                        </td>
+                        <td class="weight">
+                            <input type="number" class="form-control" name="weight" value="{{this.weight}}" required>
+                        </td>
+                        <td class="reps">
+                            <input type="number" class="form-control" name="reps" value="{{this.reps}}" required>
+                        </td>
+                        <td class="unit">
+                            <label for="lbs">lbs <input type="radio" name="lbs" value="true" {{#if lbs}} checked {{/if}}></label>
+                            <label for="kg">kg <input type="radio" name="lbs" value="false" {{#unless lbs}} checked {{/unless}}></label>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-info">Edit</button>
+                            <button class="btn btn-danger" onclick="deleteRow({{this.id}})">Delete</button>
+                        </td>
+                    </form>
                 </tr>
             {{/each}}
         </tbody>

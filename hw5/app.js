@@ -50,64 +50,49 @@ app.get('/',function(req,res,next){
   });
 });
 
-app.get('/insert',function(req,res,next){
-  mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)", 
-  [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
-    if(err){
-      next(err);
-      return;
-    }
-    res.redirect("/");
-  });
-  
-});
-
-app.get('/delete',function(req,res,next){
-  mysql.pool.query("DELETE FROM workouts WHERE id=?", [req.query.id], function(err, result){
-    if(err){
-      next(err);
-      return;
-    }
-    res.send({redirectUrl: "/"});
-  });
-});
-
-app.get('/edit',function(req,res,next){
-  console.log("edit", req.query.id)
-
+app.post('/',function(req,res,next){
   var context = {};
-  mysql.pool.query("SELECT * FROM workouts WHERE id=?", [req.query.id], function(err, rows, fields){
-    if(err){
-      next(err);
-      return;
-    }
-
-    context.result = {
-        'id': rows[0].id,
-        'name': rows[0].name, 
-        'reps': rows[0].reps, 
-        'weight': rows[0].weight, 
-        'date':rows[0].date.toISOString().slice(0, 10), 
-        'lbs': rows[0].lbs ? true : false, 
-    };
-
-    console.log("edit", context.result)
-    res.render('update', context.result)
-  });
-});
-
-
-app.get('/update',function(req,res,next){
-  console.log("update", req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs, req.query.id)
+  context.results = [];
+  console.log(req.body)
+  // insert
+  if(!req.body.id) {
+    mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)", 
+    [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs], function(err, result){
+      if(err){
+        next(err);
+        return;
+      }
+    });
+  }
+  // TODO: update
+  else if (req.body.name && req.body.id) {
+    console.log("update", req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs, req.body.id)
+    
     mysql.pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
-      [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs, req.query.id],
+      [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs, req.body.id],
       function(err, result){
       if(err){
         next(err);
         return;
       }
-      res.redirect('/');
     });
+  }
+  // TODO: delete
+  else {
+    console.log("DELETE BISH")
+
+    mysql.pool.query("DELETE FROM workouts WHERE id=?", [req.body.id], function(err, result){
+      if(err){
+        next(err);
+        return;
+      }
+    });
+  }
+
+
+
+  // build context and render page
+  res.redirect('/');
 });
 
 
